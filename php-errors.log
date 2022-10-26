@@ -1,0 +1,6 @@
+[26-Oct-2022 00:41:43 Europe/Berlin] Hola mundo
+[26-Oct-2022 00:44:42 Europe/Berlin] PHP Warning:  require_once(libs/database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 9
+[26-Oct-2022 00:44:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'libs/database.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ecommerce\index.php on line 9
