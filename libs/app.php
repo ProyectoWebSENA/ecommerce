@@ -1,8 +1,6 @@
 <?php
 
-//require_once 'controllers/errores.php';
-
-
+require_once 'controllers/errorController.php';
 class App
 {
   function __construct()
@@ -43,12 +41,16 @@ class App
           }
         } else {
           //No existe el metodo -> 404
+          $controller = new ErrorController();
+          $controller->render();
         }
       } else {
         $controller->render();
       }
     } else {
       //No existe el controlador -> 404
+      $controller = new ErrorController();
+      $controller->render();
     }
   }
 }
