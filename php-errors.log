@@ -33,3 +33,9 @@ Stack trace:
 [27-Oct-2022 00:41:14 Europe/Berlin] LOGIN::RENDER -> Render incio home
 [27-Oct-2022 00:41:26 Europe/Berlin] ERRORCONTROLLER::CONSTRUCT -> Inicio de Error
 [27-Oct-2022 00:41:26 Europe/Berlin] ERROR::RENDER -> Render inicio 404
+[27-Oct-2022 22:52:12 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
+[27-Oct-2022 22:52:12 Europe/Berlin] LOGIN::RENDER -> Render incio home
+[27-Oct-2022 22:57:08 Europe/Berlin] ERRORCONTROLLER::CONSTRUCT -> Inicio de Error
+[27-Oct-2022 22:57:08 Europe/Berlin] ERROR::RENDER -> Render inicio 404
+[27-Oct-2022 22:57:13 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
+[27-Oct-2022 22:57:13 Europe/Berlin] LOGIN::RENDER -> Render incio home
