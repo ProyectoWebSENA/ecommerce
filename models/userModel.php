@@ -26,6 +26,21 @@ class UserModel extends Model implements IModel
 
   public function save()
   {
+    try {
+      $query = $this ->prepare("INSERT INTO usuarios(name, username, email, cellhpone, address, hash_password, pic_url) VALUES (:name, :username, :email, :cellphone, :address :hash_passsword, .pic_url)");
+      $query -> execute([
+        "name" => $this->name ,
+        "username" => $this->username ,
+        "email" =>  $this->email ,
+        "cellphone" =>  $this->cellphone ,
+        "address" => $this->address ,
+        "hash_password" => $this->hash_password, 
+        "pic_url" =>$this->pic_url ,
+      ]);
+    } catch (PDOException $e) {
+      error_log("USERMODEL::SAVE -> " . $e->getMessage());
+      return false;
+    }
   }
   public function get($id)
   {
