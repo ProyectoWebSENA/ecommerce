@@ -96,7 +96,15 @@ class UserModel extends Model implements IModel
     }
   }
   public function from($array)
-  {
+  {  
+    $this->id = $array['id'];
+    $this->name = $array['name'];
+    $this->username = $array['username'];
+    $this->email = $array['email'];
+    $this->cellphone = $array['cellphone'];
+    $this->address = $array['address'];
+    $this->hash_password = $array['hash_password'];
+    $this->pic_url = $array['pic_url'];
   }
 
   public function setId($id)
