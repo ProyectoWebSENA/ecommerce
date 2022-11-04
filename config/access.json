@@ -1,32 +1,30 @@
 {
-    "sites":[
-        {
-            "site": "",
-            "access": "public",
-            "role":""
-        },
-    
+  "sites": [
     {
-        "site": "signup",
-        "access": "public",
-        "role":""
+      "site": "",
+      "access": "public",
+      "role": ""
+    },
+
+    {
+      "site": "signup",
+      "access": "public",
+      "role": ""
     },
     {
-        "site": "cart",
-        "access": "private",
-        "role":"user"
+      "site": "cart",
+      "access": "private",
+      "role": "user"
     },
     {
-        "site": "dashboard",
-        "access": "public",
-        "role":"admin"
+      "site": "dashboard",
+      "access": "public",
+      "role": "admin"
     }
+  ],
 
-    ],
-
-    "default-sites":{
-        "user": "",
-        "admin": "dashboard"
-    }
-    
+  "default-sites": {
+    "user": "",
+    "admin": "dashboard"
+  }
 }

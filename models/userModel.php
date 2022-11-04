@@ -96,7 +96,7 @@ class UserModel extends Model implements IModel
     }
   }
   public function from($array)
-  {  
+  {
     $this->id = $array['id'];
     $this->name = $array['name'];
     $this->username = $array['username'];
@@ -137,49 +137,56 @@ class UserModel extends Model implements IModel
   }
   public function setPassword($password, $hash = true)
   {
-    if($hash){
-    $this->hash_password = $this->getHashedPassword($password);
-  }else{
-    $this->hash_password  = $password;
+    if ($hash) {
+      $this->hash_password = $this->getHashedPassword($password);
+    } else {
+      $this->hash_password  = $password;
+    }
   }
-}
   public function setPic($pic_url)
   {
     $this->pic_url = $pic_url;
   }
-
+  public function setRole($role)
+  {
+    $this->role = $role;
+  }
 
 
   public function getId()
   {
-    $this->id;
+    return $this->id;
   }
   public function getName()
   {
-    $this->name;
+    return $this->name;
   }
   public function getUsername()
   {
-    $this->username;
+    return $this->username;
   }
   public function getEmail()
   {
-    $this->email;
+    return $this->email;
   }
   public function getCellphone()
   {
-    $this->cellphone;
+    return $this->cellphone;
   }
   public function getAdrees()
   {
-    $this->address;
+    return $this->address;
   }
   public function getPassword()
   {
-    $this->hash_password;
+    return $this->hash_password;
   }
   public function getPic()
   {
-    $this->pic_url;
+    return $this->pic_url;
+  }
+  public function getRole()
+  {
+    return $this->role;
   }
 }
