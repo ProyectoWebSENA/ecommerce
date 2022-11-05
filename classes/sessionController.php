@@ -19,6 +19,22 @@ class SessionController extends Controller
     $this->init();
   }
 
+  public function getUserSession()
+  {
+    return $this->userSession;
+  }
+  public function getUsername()
+
+  {
+    return $this->username;
+  }
+
+  public function getUserId()
+
+  {
+    return $this->userUserId;
+  }
+
   private function init()
   {
     $this->session = new Session();
@@ -136,6 +152,31 @@ class SessionController extends Controller
     error_log("SESSIONCONTROLLER::GETCURRENTPAGE: link -> " . $link . " url -> " . $url[2]);
     return $url[2];
   }
+
+
+  public function initialize($user)
+  {
+
+    error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getUsername());
+    $this->session->setCurrentUser($user->getId());
+    $this->authorizeAccess($user->getRole());
+  }
+
+  function authorizeAccess($role)
+  {
+    error_log("SESSIONCONTROLLER::AUTHORIZEACCESS: role:" . $role);
+    switch ($role) {
+      case 'user':
+        $this->redirect($this->defaultSites['user']);
+        break;
+      case 'admin':
+        $this->redirect($this->defaultSites['admin']);
+        break;
+      default:
+        break;
+    }
+  }
+
 
   function logout()
   {
