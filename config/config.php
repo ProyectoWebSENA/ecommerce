@@ -1,5 +1,5 @@
 <?php
-define('URL', 'http://localhost:80/ecommerce');
+define('URL', 'http://localhost:80/ecommerce/');
 
 define('HOST', 'localhost');
 define('DB', 'ecommerce');
