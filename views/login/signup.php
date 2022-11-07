@@ -29,11 +29,27 @@
       <form action="POST" class="auth-form">
         <h1 class="auth-form-title">Registrarse</h1>
         <div class="auth-input-container">
+          <label for="">Nombre completo</label>
+          <input type="text" name="" id="" required />
+        </div>
+        <div class="auth-input-container">
           <label for="">Correo Electronico</label>
           <input type="email" name="" id="" required />
         </div>
         <div class="auth-input-container">
+          <label for="">Numero de celular</label>
+          <input type="number" name="" id="" required />
+        </div>
+        <div class="auth-input-container">
+          <label for="">Dirección</label>
+          <input type="text" name="" id="" required />
+        </div>
+        <div class="auth-input-container">
           <label for="">Contraseña</label>
+          <input type="password" name="" id="" required />
+        </div>
+        <div class="auth-input-container">
+          <label for="">Confirmar contraseña</label>
           <input type="password" name="" id="" required />
         </div>
         <div class="auth-submit-container">
