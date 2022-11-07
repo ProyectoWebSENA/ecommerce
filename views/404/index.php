@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/global.css" />
-    <link rel="stylesheet" href="./styles/404.css" />
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/404.css" />
     <title>Pagina No Encontrada | Ecommerce</title>
   </head>
   <body>
@@ -31,7 +31,7 @@
       <a/>
       <div class="pnf-desc-container">
         <div class="pnf-img-container">
-          <img src="./images/404.svg" alt="404 illustration" class="pnf-img" />
+          <img src="<?php echo constant('URL') ?>public/images/404.svg" alt="404 illustration" class="pnf-img" />
         </div>
         <div class="pnf-text-container">
           <p class="pnf-text">
