@@ -4,39 +4,36 @@ class UserModel extends Model implements IModel
 {
   private $id;
   private $name;
-  private $username;
   private $email;
   private $cellphone;
   private $address;
   private $hash_password;
-  private $pic_url;
+  private $role;
 
   public function __construct()
   {
     parent::__construct();
     $this->id = "";
     $this->name = "";
-    $this->username = "";
     $this->email = "";
     $this->cellphone = 0;
     $this->address = "";
     $this->hash_password = "";
-    $this->pic_url = "";
+    $this->role = "";
   }
 
   public function save()
   {
     try {
-      $query = $this->prepare("INSERT INTO usuarios (name, username, email, cellphone, address,
-      hash_password, pic_url) ) VALUES (:name, :username, :email, :cellphone, :address, :hash_password, :pic_url)");
+      $query = $this->prepare("INSERT INTO usuarios (name, email, cellphone, address,
+      hash_password, role) ) VALUES (:name, :email, :cellphone, :address, :hash_password, :role)");
       $query->execute([
         "name" => $this->name,
-        "username" => $this->username,
         "email" => $this->email,
-        "ccellphone" => $this->cellphone,
+        "cellphone" => $this->cellphone,
         "address" => $this->address,
         "hash_password" => $this->hash_password,
-        "pic_url" => $this->pic_url,
+        "role" => $this->role
       ]);
     } catch (PDOException $e) {
       error_log("USERMODEL::SAVE-> " . $e->getMessage());
@@ -51,12 +48,11 @@ class UserModel extends Model implements IModel
       $user = $query->fetch(PDO::FETCH_ASSOC);
 
       $this->name = $user['name'];
-      $this->username = $user['username'];
       $this->email = $user['email'];
       $this->cellphone = $user['cellphone'];
       $this->address = $user['address'];
       $this->hash_password = $user['hash_password'];
-      $this->pic_url = $user['pic_url'];
+      $this->role = $user['role'];
       return $this;
     } catch (PDOException $e) {
       error_log("USERMODEL::GET -> " . $e->getMessage());
@@ -77,17 +73,16 @@ class UserModel extends Model implements IModel
   public function update()
   {
     try {
-      $query = $this->prepare("UPDATE usuarios SET name, username = :username, email = :email, cellphone = :cellphone, 
-      address = :address, hash_password = :hash_password,  pic_url= :pic_url WHERE id = :id");
+      $query = $this->prepare("UPDATE usuarios SET name = :name, email = :email, cellphone = :cellphone, 
+      address = :address, hash_password = :hash_password, role = :role WHERE id = :id");
       $query->execute([
         "id" => $this->id,
         "name" => $this->name,
-        "username" => $this->username,
         "email" => $this->email,
         "ccellphone" => $this->cellphone,
         "address" => $this->address,
         "hash_password" => $this->hash_password,
-        "pic_url" => $this->pic_url,
+        "role" => $this->role
       ]);
       return true;
     } catch (PDOException $e) {
@@ -99,12 +94,11 @@ class UserModel extends Model implements IModel
   {
     $this->id = $array['id'];
     $this->name = $array['name'];
-    $this->username = $array['username'];
     $this->email = $array['email'];
     $this->cellphone = $array['cellphone'];
     $this->address = $array['address'];
     $this->hash_password = $array['hash_password'];
-    $this->pic_url = $array['pic_url'];
+    $this->role = $array['role'];
   }
 
   public function setId($id)
@@ -118,10 +112,6 @@ class UserModel extends Model implements IModel
   public function setName($name)
   {
     $this->name = $name;
-  }
-  public function setUsername($username)
-  {
-    $this->username = $username;
   }
   public function setEmail($email)
   {
@@ -143,10 +133,6 @@ class UserModel extends Model implements IModel
       $this->hash_password  = $password;
     }
   }
-  public function setPic($pic_url)
-  {
-    $this->pic_url = $pic_url;
-  }
   public function setRole($role)
   {
     $this->role = $role;
@@ -160,10 +146,6 @@ class UserModel extends Model implements IModel
   public function getName()
   {
     return $this->name;
-  }
-  public function getUsername()
-  {
-    return $this->username;
   }
   public function getEmail()
   {
@@ -180,10 +162,6 @@ class UserModel extends Model implements IModel
   public function getPassword()
   {
     return $this->hash_password;
-  }
-  public function getPic()
-  {
-    return $this->pic_url;
   }
   public function getRole()
   {
