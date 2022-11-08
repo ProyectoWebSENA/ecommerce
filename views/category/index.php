@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/header.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/home.css" />
   <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
-  <title>Pagina Principal</title>
+  <title>Categoria | Ecommerce</title>
 </head>
 
 <body>
-  <?php include_once 'views/header.php' ?>
+<?php include_once 'views/header.php' ?>
   <h1 class="page-title">HOLA DESDE LA PAGINA PRINCIPAL</h1>
   <section class="section">
     <h2 class="cards-container-title">Electrodomesticos</h2>
@@ -165,7 +165,5 @@
     </div>
   </section>
       </div>
-
 </body>
-
 </html>
