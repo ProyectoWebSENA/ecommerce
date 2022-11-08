@@ -81,7 +81,7 @@ class UserModel extends Model implements IModel
       $query->execute([
         "name" => $this->name,
         "email" => $this->email,
-        "ccellphone" => $this->cellphone,
+        "cellphone" => $this->cellphone,
         "address" => $this->address,
         "password" => $this->password,
         "role" => $this->role,

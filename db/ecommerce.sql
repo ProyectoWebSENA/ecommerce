@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 27, 2022 at 11:52 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-11-2022 a las 20:15:39
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,17 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ecommerce`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `carrito`
+-- Base de datos: `ecommerce`
 --
 
 CREATE DATABASE ecommerce;
 USE ecommerce;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
 
 CREATE TABLE `carrito` (
   `id` varchar(10) NOT NULL,
@@ -39,7 +38,7 @@ CREATE TABLE `carrito` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -50,7 +49,7 @@ CREATE TABLE `categorias` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cat_prod`
+-- Estructura de tabla para la tabla `cat_prod`
 --
 
 CREATE TABLE `cat_prod` (
@@ -62,22 +61,22 @@ CREATE TABLE `cat_prod` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
-  `id` varchar(10) NOT NULL,
+  `prod_code` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `description` mediumtext NOT NULL,
   `prod_pic_url` text NOT NULL,
-  `tipo_prod` varchar(100) NOT NULL
+  `type_prod` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `resenas`
+-- Estructura de tabla para la tabla `resenas`
 --
 
 CREATE TABLE `resenas` (
@@ -91,13 +90,12 @@ CREATE TABLE `resenas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_cart`
+-- Estructura de tabla para la tabla `user_cart`
 --
 
 CREATE TABLE `user_cart` (
   `id` int(11) NOT NULL,
   `id_cart` varchar(10) NOT NULL,
-  `id_user` varchar(20) NOT NULL,
   `id_prod` varchar(10) NOT NULL,
   `prod_quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -105,10 +103,11 @@ CREATE TABLE `user_cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(150) NOT NULL,
@@ -119,41 +118,47 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`prod_code`);
 
 --
--- Indexes for table `resenas`
+-- Indices de la tabla `resenas`
 --
 ALTER TABLE `resenas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_cart`
+-- Indices de la tabla `user_cart`
 --
 ALTER TABLE `user_cart`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`username`,`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `user_cart`
+-- AUTO_INCREMENT de la tabla `user_cart`
 --
 ALTER TABLE `user_cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
