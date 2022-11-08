@@ -20,7 +20,7 @@ class LoginController extends SessionController
 
       if ($email == '' || empty($email) || $password == '' || empty($password)) {
         error_log("LOGIN::AUTHENTICATE empty");
-        $this->redirect('login', ['error' => 'Campos vacios']);
+        $this->redirect('login', ['error' => Errors::ERROR_AUTH_EMPTY]);
         return false;
       }
 
@@ -31,11 +31,11 @@ class LoginController extends SessionController
         $this->initialize($user);
       } else {
         error_log("LOGIN::AUTHENTICATE usuario o contraseña inconrrectos");
-        $this->redirect('login', ['error' => 'usuario o contraseña inconrrectos']);
+        $this->redirect('login', ['error' => Errors::ERROR_AUTH_LOGIN_WRONG_PARAMS]);
       }
     } else {
       error_log("LOGIN::AUTHENTICATE error con los parametros");
-      $this->redirect('login', ['error' => 'error con los parametros']);
+      $this->redirect('login', ['error' => Errors::ERROR_AUTH_DATABASE]);
     }
   }
 }

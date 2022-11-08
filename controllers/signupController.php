@@ -24,7 +24,7 @@ class SignupController extends SessionController
       if (
         $name == '' || empty($name) || $email == '' || empty($email) || $cellphone == '' || empty($cellphone) || $address == '' || empty($address) || $password == '' || empty($password)
       ) {
-        $this->redirect('signup', ['error' => "Campos invalidos"]);
+        $this->redirect('signup', ['error' => Errors::ERROR_AUTH_EMPTY]);
       }
 
       $user = new UserModel();
@@ -38,19 +38,19 @@ class SignupController extends SessionController
         $user->setRole("user");
 
         if ($user->exists($email)) {
-          $this->redirect('signup', ['error' => "El usuario ya existe"]);
+          $this->redirect('signup', ['error' => Errors::ERROR_AUTH_SIGNUP_NEWUSER_EXISTS]);
         }
 
         if ($user->save()) {
-          $this->redirect('', ['success' => "Usuario registrado correctamente"]);
+          $this->redirect('/login');
         } else {
-          $this->redirect('signup', ['error' => "Error inesperado"]);
+          $this->redirect('signup', ['error' => Errors::ERROR_AUTH_SIGNUP_NEWUSER_SAVE]);
         }
       } else {
-        $this->redirect('signup', ['error' => "Contraseñas no coinciden"]);
+        $this->redirect('signup', ['error' => Errors::ERROR_AUTH_SIGNUP_NEWUSER_PASSWORDS_DIFFER]);
       }
     } else {
-      $this->redirect('signup', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('signup', ['error' => Errors::ERROR_AUTH_DATABASE]);
     }
   }
 }
