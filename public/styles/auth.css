@@ -1,6 +1,9 @@
 header {
   width: 100%;
   height: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .auth-nav {
@@ -25,15 +28,15 @@ header {
 .auth-trademark {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100%;
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 2px;
-  line-height: 0;
-  color: black;
+  width: 50px;
+}
+
+.auth-trademark img {
+  height: 90%;
+  width: auto;
+  border-radius: 10px;
 }
 
 .auth-main {
@@ -53,6 +56,7 @@ header {
 .auth-form-section {
   grid-column: span 2;
   width: 100%;
+  min-height: calc(100vh - 50px);
   height: max-content;
   display: flex;
   justify-content: center;
@@ -68,7 +72,6 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
   padding: 2rem 1rem;
   background: rgba(255, 203, 135, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -161,15 +164,15 @@ header {
   .auth-img-container {
     width: 250px;
     height: 250px;
-    border-radius: 50%;
-    box-shadow: 0 0 50px #ccc;
   }
 
   .auth-img {
     width: 100%;
     height: 100%;
     object-fit: fill;
-    border-radius: 50%;
+    border-radius: 10px;
+    box-shadow: -10px -10px 0 0 rgba(0, 0, 0, 0.2),
+      10px 10px 0 0 rgba(0, 0, 0, 0.2);
   }
 
   .auth-form-section {

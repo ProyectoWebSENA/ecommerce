@@ -23,12 +23,16 @@ class App
 
     if (file_exists($archController)) {
       require_once $archController;
+
       $controllerName = $url[0] . 'Controller';
       $controller = new $controllerName;
+
+      $controller->loadModel($url[0]);
+
       if (isset($url[1])) {
         if (method_exists($controller, $url[1])) {
           if (isset($url[2])) {
-            $nparam = count($url) - 2;
+            $nparam = sizeof($url) - 2;
             $params = [];
 
             for ($i = 0; $i < $nparam; $i++) {

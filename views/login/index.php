@@ -7,22 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/auth.css" />
+  <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
   <title>Iniciar Sesión | Ecommerce</title>
 </head>
 
 <body>
-  <header>
-    <nav class="auth-nav">
-      <div class="auth-trademark-container">
-        <a href="<?php echo constant('URL') ?>" class="auth-trademark"><span>Ecommerce</span></a>
-      </div>
-    </nav>
-  </header>
+  <?php include_once 'views/login/header.php' ?>
 
   <main class="auth-main">
     <section class="auth-img-section">
       <div class="auth-img-container">
-        <img src="https://picsum.photos/2000" alt="" class="auth-img" />
+        <img src="<?php echo constant('URL') ?>public/images/login.jpg" alt="" class="auth-img" />
       </div>
     </section>
     <section class="auth-form-section">
@@ -30,11 +25,11 @@
         <h1 class="auth-form-title">Iniciar Sesión</h1>
         <div class="auth-input-container">
           <label for="">Correo Electronico</label>
-          <input type="email" name="" id="" required />
+          <input type="email" name="email" id="email" required />
         </div>
         <div class="auth-input-container">
           <label for="">Contraseña</label>
-          <input type="password" name="" id="" required />
+          <input type="password" name="password" id="password" required />
         </div>
         <div class="auth-submit-container">
           <input type="submit" value="Iniciar Sesión" class="submit-btn" />

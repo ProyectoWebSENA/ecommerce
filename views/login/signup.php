@@ -7,22 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/auth.css" />
+  <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
   <title>Registrarse | Ecommerce</title>
 </head>
 
 <body>
-  <header>
-    <nav class="auth-nav">
-      <div class="auth-trademark-container">
-        <a href="<?php echo constant('URL') ?>" class="auth-trademark"><span>Ecommerce</span></a>
-      </div>
-    </nav>
-  </header>
+  <?php include_once 'views/login/header.php' ?>
 
   <main class="auth-main">
     <section class="auth-img-section">
       <div class="auth-img-container">
-        <img src="https://picsum.photos/2000" alt="" class="auth-img" />
+        <img src="<?php echo constant('URL') ?>public/images/signup.svg" alt="" class="auth-img" />
       </div>
     </section>
     <section class="auth-form-section">
