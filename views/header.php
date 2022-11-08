@@ -19,12 +19,37 @@
         </form>
       </div>
       <div class="links-container">
-        <a href="" class="profile-icon"><img src="" alt=""></a>
+        <a href="" class="profile-icon active">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="7" r="4" />
+            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+          </svg>
+          <p>Nombre Usuario</p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fold-down" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 11v8l3 -3m-6 0l3 3" />
+            <line x1="9" y1="7" x2="10" y2="7" />
+            <line x1="14" y1="7" x2="15" y2="7" />
+            <line x1="19" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="7" x2="5" y2="7" />
+          </svg>
+        </a>
         <div class="profile-icon-actions-container">
           <a href="">Ajustes de Cuenta</a>
           <a href="">Cerrar Sesión</a>
         </div>
-        <a href="" class="cart-icon"><img src="" alt=""></a>
+        <a href="" class="cart-icon active">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="6" cy="19" r="2" />
+            <circle cx="17" cy="19" r="2" />
+            <path d="M17 17h-11v-14h-2" />
+            <path d="M6 5l14 1l-1 7h-13" />
+          </svg>
+          <p>Tu Carrito</p>
+          <div class="span-div"></div>
+        </a>
       </div>
     </div>
     <div class="burger">
