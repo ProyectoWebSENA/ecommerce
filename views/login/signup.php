@@ -30,27 +30,27 @@
         <h1 class="auth-form-title">Registrarse</h1>
         <div class="auth-input-container">
           <label for="">Nombre completo</label>
-          <input type="text" name="" id="" required />
+          <input type="text" name="name" id="" required />
         </div>
         <div class="auth-input-container">
           <label for="">Correo Electronico</label>
-          <input type="email" name="" id="" required />
+          <input type="email" name="email" id="" required />
         </div>
         <div class="auth-input-container">
           <label for="">Numero de celular</label>
-          <input type="number" name="" id="" required />
+          <input type="number" name="cellphone" id="" required />
         </div>
         <div class="auth-input-container">
           <label for="">Dirección</label>
-          <input type="text" name="" id="" required />
+          <input type="text" name="address" id="" required />
         </div>
         <div class="auth-input-container">
           <label for="">Contraseña</label>
-          <input type="password" name="" id="" required />
+          <input type="password" name="password" id="" required />
         </div>
         <div class="auth-input-container">
           <label for="">Confirmar contraseña</label>
-          <input type="password" name="" id="" required />
+          <input type="password" name="coPassword" id="" required />
         </div>
         <div class="auth-submit-container">
           <input type="submit" value="Registrarse" class="submit-btn" />

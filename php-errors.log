@@ -187,3 +187,101 @@ Stack trace:
 [08-Nov-2022 01:19:56 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup url -> signup
 [08-Nov-2022 01:19:56 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
 [08-Nov-2022 01:19:56 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:26:18 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
+[08-Nov-2022 01:26:18 Europe/Berlin] LOGIN::RENDER -> Render incio home
+[08-Nov-2022 01:26:25 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:26:25 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:26:25 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:26:25 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:04 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:04 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:04 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:04 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:09 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 01:27:09 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 02:05:15 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 02:05:15 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
+[08-Nov-2022 02:05:15 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 02:05:15 Europe/Berlin] Entra a sitio publico

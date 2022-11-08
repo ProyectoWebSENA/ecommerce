@@ -76,13 +76,13 @@ class UserModel extends Model implements IModel
       $query = $this->prepare("UPDATE usuarios SET name = :name, email = :email, cellphone = :cellphone, 
       address = :address, hash_password = :hash_password, role = :role WHERE id = :id");
       $query->execute([
-        "id" => $this->id,
         "name" => $this->name,
         "email" => $this->email,
         "ccellphone" => $this->cellphone,
         "address" => $this->address,
         "hash_password" => $this->hash_password,
-        "role" => $this->role
+        "role" => $this->role,
+        "id" => $this->id
       ]);
       return true;
     } catch (PDOException $e) {
@@ -99,6 +99,23 @@ class UserModel extends Model implements IModel
     $this->address = $array['address'];
     $this->hash_password = $array['hash_password'];
     $this->role = $array['role'];
+  }
+
+  public function exists($email)
+  {
+    try {
+      $query = $this->prepare("SELECT email FROM usuarios Where email = :email");
+      $query->execute(['email' => $email]);
+      $query->fetch(PDO::FETCH_ASSOC);
+      if ($query->rowCount() > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (PDOException $e) {
+      error_log("USERMODEL::GET -> " . $e->getMessage());
+      return false;
+    }
   }
 
   public function setId($id)
@@ -121,7 +138,7 @@ class UserModel extends Model implements IModel
   {
     $this->cellphone = $cellphone;
   }
-  public function setAdrees($address)
+  public function setAddress($address)
   {
     $this->address = $address;
   }
@@ -155,7 +172,7 @@ class UserModel extends Model implements IModel
   {
     return $this->cellphone;
   }
-  public function getAdrees()
+  public function getAddress()
   {
     return $this->address;
   }

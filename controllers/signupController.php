@@ -13,12 +13,37 @@ class SignupController extends SessionController
 
   function newUser()
   {
-    if ($this->existsPOST(['name', 'email', 'cellphone', 'address', 'hash_pasword', 'role'])) {
+    if ($this->existsPOST(['name', 'email', 'cellphone', 'address', 'password'])) {
       $name = $this->getPost('name');
       $email = $this->getPost('email');
+      $cellphone = $this->getPost('cellphone');
       $address = $this->getPost('address');
       $password = $this->getPost('password');
-      $role = $this->getPost('role');
+
+      if (
+        $name == '' || empty($name) || $email == '' || empty($email) || $cellphone == '' || empty($cellphone)
+        || $address == '' || empty($address) || $password == '' || empty($password)
+      ) {
+        $this->redirect('signup', ['error' => "Campos invalidos"]);
+      }
+
+      $user = new UserModel();
+      $user->setName($name);
+      $user->setEmail($email);
+      $user->setCellphone($cellphone);
+      $user->setAddress($address);
+      $user->setPassword($password);
+      $user->setRole("user");
+
+      if ($user->exists($email)) {
+        $this->redirect('signup', ['error' => "El usuario ya existe"]);
+      } else if($user ->save()){
+        $this->redirect('', ['success' => "Usuario registrado correctamente"]);
+      }else{
+        $this->redirect('signup', ['error' => "Error inesperado"]);
+      }
+    }else{
+      $this->redirect('signup', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 }
