@@ -30,11 +30,11 @@
         <h1 class="auth-form-title">Iniciar Sesión</h1>
         <div class="auth-input-container">
           <label for="">Correo Electronico</label>
-          <input type="email" name="" id="" required />
+          <input type="email" name="email" id="email" required />
         </div>
         <div class="auth-input-container">
           <label for="">Contraseña</label>
-          <input type="password" name="" id="" required />
+          <input type="password" name="password" id="password" required />
         </div>
         <div class="auth-submit-container">
           <input type="submit" value="Iniciar Sesión" class="submit-btn" />
