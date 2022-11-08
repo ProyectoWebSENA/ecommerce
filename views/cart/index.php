@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <?php include_once 'views/header.php' ?>
+
 
 </body>
 

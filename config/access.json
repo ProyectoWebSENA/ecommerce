@@ -17,8 +17,8 @@
     },
     {
       "site": "cart",
-      "access": "private",
-      "role": "user"
+      "access": "public",
+      "role": ""
     },
     {
       "site": "dashboard",
