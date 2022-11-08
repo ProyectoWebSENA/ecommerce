@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
-  <link rel="stylesheet" href="<?php echo constant('URL') ?> public/styles/auth.css" />
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/auth.css" />
   <title>Iniciar Sesión | Ecommerce</title>
 </head>
 
@@ -14,7 +14,7 @@
   <header>
     <nav class="auth-nav">
       <div class="auth-trademark-container">
-        <a href="/" class="auth-trademark"><span>Ecommerce</span></a>
+        <a href="<?php echo constant('URL') ?>" class="auth-trademark"><span>Ecommerce</span></a>
       </div>
     </nav>
   </header>
@@ -26,7 +26,7 @@
       </div>
     </section>
     <section class="auth-form-section">
-      <form action="POST" class="auth-form">
+      <form action="<?php echo constant('URL') ?>login/authenticate" method="POST" class="auth-form">
         <h1 class="auth-form-title">Iniciar Sesión</h1>
         <div class="auth-input-container">
           <label for="">Correo Electronico</label>
@@ -40,8 +40,8 @@
           <input type="submit" value="Iniciar Sesión" class="submit-btn" />
         </div>
         <div class="auth-links-container">
-          <a href="/">¿Olvidaste tu Contraseña?</a>
-          <a href="/">Registrarse</a>
+          <a href="<?php echo constant('URL') ?>recoverPassword">¿Olvidaste tu Contraseña?</a>
+          <a href="<?php echo constant('URL') ?>signup">Registrarse</a>
         </div>
       </form>
     </section>

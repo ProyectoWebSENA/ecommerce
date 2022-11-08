@@ -14,7 +14,7 @@
   <header>
     <nav class="auth-nav">
       <div class="auth-trademark-container">
-        <a href="/" class="auth-trademark"><span>Ecommerce</span></a>
+        <a href="<?php echo constant('URL') ?>" class="auth-trademark"><span>Ecommerce</span></a>
       </div>
     </nav>
   </header>
@@ -26,7 +26,7 @@
       </div>
     </section>
     <section class="auth-form-section">
-      <form action="POST" class="auth-form">
+      <form action="<?php echo constant('URL') ?>signup/newUser" class="auth-form">
         <h1 class="auth-form-title">Registrarse</h1>
         <div class="auth-input-container">
           <label for="">Nombre completo</label>
@@ -56,7 +56,7 @@
           <input type="submit" value="Registrarse" class="submit-btn" />
         </div>
         <div class="auth-links-container">
-          <a href="/">Registrarse</a>
+          <a href="<?php echo constant('URL') ?>login">Iniciar Sesión</a>
         </div>
       </form>
     </section>
