@@ -9,7 +9,7 @@ class CartController extends SessionController
 
   function render()
   {
-    $this->view->render('login/index');
+    $this->view->render('cart/index');
   }
 
   function addProductToCart()
@@ -28,33 +28,21 @@ class CartController extends SessionController
 
   private function validateCartStatus()
   {
-    if ($this->existsPOST(['id_user'])) {
-      $idUser = $this->getPost('id_user');
-
-      if ($idUser == '' || empty($idUser)) {
-        error_log("CARTCONTROLLER::VALIDATECARTSTATUS empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
-      }
+    if ($_SESSION['user']) {
+      $idUser = $_SESSION['user'];
       return  $this->model->validateCartStatus($idUser);
     } else {
-      $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('cart', ['error' => "No se ha iniciado sesion"]);
     }
   }
 
   private function createUserCart()
   {
-    if ($this->existsPOST(['id_user'])) {
-      $idUser = $this->getPost('id_user');
-
-      if ($idUser == '' || empty($idUser)) {
-        error_log("CARTCONTROLLER::VALIDATECARTSTATUS empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
-        return false;
-      }
-
+    if ($_SESSION['user']) {
+      $idUser = $_SESSION['user'];
       return  $this->model->createUserCart($idUser);
     } else {
-      $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('cart', ['error' => "No se ha iniciado sesion"]);
     }
   }
 
@@ -121,8 +109,8 @@ class CartController extends SessionController
 
   function getCartInformation()
   {
-    if ($this->existsPOST(['id_user'])) {
-      $idUser = $this->getPost('id_user');
+    if ($_SESSION['user']) {
+      $idUser = $_SESSION['user'];
 
       if ($idUser == '' || empty($idUser)) {
         error_log("CARTCONTROLLER::GETCARTINFORMATION empty");

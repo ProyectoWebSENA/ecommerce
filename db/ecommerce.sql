@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ecommerce`
 --
-
+DROP DATABASE IF EXISTS ecommerce;
 CREATE DATABASE ecommerce;
 USE ecommerce;
 -- --------------------------------------------------------
@@ -113,8 +113,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(150) NOT NULL,
   `cellphone` bigint(20) NOT NULL,
   `direccion` varchar(255) NOT NULL,
-  `hash_password` text NOT NULL,
-  `pic_url` text NOT NULL
+  `password` text NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

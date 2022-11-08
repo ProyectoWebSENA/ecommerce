@@ -156,7 +156,6 @@ class SessionController extends Controller
 
   public function initialize($user)
   {
-
     error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getName());
     $this->session->setCurrentUser($user->getId());
     $this->authorizeAccess($user->getRole());
@@ -176,7 +175,6 @@ class SessionController extends Controller
         break;
     }
   }
-
 
   function logout()
   {
