@@ -47,7 +47,7 @@ class Controller
     $params = join('&', $data);
 
     if ($params != '') {
-      $parans = '?' . $params;
+      $params = '?' . $params;
     }
     header('Location: ' . constant('URL') . $url . $params);
   }

@@ -34,6 +34,7 @@ class UserModel extends Model implements IModel
         'password' => $this->password,
         'role' => $this->role
       ]);
+      return true;
     } catch (PDOException $e) {
       error_log("USERMODEL::SAVE-> " . $e->getMessage());
       return false;
@@ -116,6 +117,13 @@ class UserModel extends Model implements IModel
       error_log("USERMODEL::GET -> " . $e->getMessage());
       return false;
     }
+  }
+
+  public function compareSignupPasswords($password, $coPassword)
+  {
+    if ($password === $coPassword) return true;
+
+    return false;
   }
 
   public function setId($id)
