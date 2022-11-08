@@ -5,4 +5,4 @@ define('HOST', 'localhost');
 define('DB', 'ecommerce');
 define('USER', 'root');
 define('PASSWORD', '');
-define('CHARSET', 'uft8mb4');
+define('CHARSET', 'utf8');

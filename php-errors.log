@@ -1,287 +1,54 @@
-[08-Nov-2022 00:53:21 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
-[08-Nov-2022 00:53:21 Europe/Berlin] LOGIN::RENDER -> Render incio home
-[08-Nov-2022 00:53:40 Europe/Berlin] ERRORCONTROLLER::CONSTRUCT -> Inicio de Error
-[08-Nov-2022 00:53:40 Europe/Berlin] ERROR::RENDER -> Render inicio 404
-[08-Nov-2022 00:54:15 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
-[08-Nov-2022 00:54:15 Europe/Berlin] LOGIN::RENDER -> Render incio home
-[08-Nov-2022 01:09:47 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:09:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
+[08-Nov-2022 03:08:46 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:08:46 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup/ url -> signup
+[08-Nov-2022 03:08:46 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:08:46 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:09:00 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:09:00 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup/newUser url -> signup
+[08-Nov-2022 03:09:00 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:09:00 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:09:00 Europe/Berlin] CONTROLLER:EXISTPOST: existen todos los parametros
+[08-Nov-2022 03:09:01 Europe/Berlin] DATABASE::CONNECT -> Error de conexión: SQLSTATE[HY000] [2019] Unknown character set
+[08-Nov-2022 03:09:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ecommerce\libs\model.php:19
 Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:10:12 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:10:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:06 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:17 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:20 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:26 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:47 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:51 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:13:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:14:18 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:14:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:14:20 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:14:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\Ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\Ecommerce\index.php on line 15
-[08-Nov-2022 01:15:17 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:15:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:15:19 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:15:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:15:24 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:15:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:01 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:02 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:02 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:03 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:33 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:16:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:12 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:12 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:39 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:45 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:50 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:55 Europe/Berlin] PHP Warning:  require_once(calsses/session.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:17:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'calsses/session.php' (include_path='\xampp\php\PEAR') in C:\xampp\htdocs\ecommerce\index.php:15
-Stack trace:
-#0 {main}
-  thrown in C:\xampp\htdocs\ecommerce\index.php on line 15
-[08-Nov-2022 01:18:51 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
-[08-Nov-2022 01:18:51 Europe/Berlin] LOGIN::RENDER -> Render incio home
-[08-Nov-2022 01:18:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "Controller" in C:\xampp\htdocs\ecommerce\libs\app.php:26
-Stack trace:
-#0 C:\xampp\htdocs\ecommerce\index.php(20): App->__construct()
-#1 {main}
-  thrown in C:\xampp\htdocs\ecommerce\libs\app.php on line 26
-[08-Nov-2022 01:19:48 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
-[08-Nov-2022 01:19:48 Europe/Berlin] LOGIN::RENDER -> Render incio home
-[08-Nov-2022 01:19:56 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:19:56 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup url -> signup
-[08-Nov-2022 01:19:56 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:19:56 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:26:18 Europe/Berlin] LOGIN::CONSTRUCT -> Inicio home
-[08-Nov-2022 01:26:18 Europe/Berlin] LOGIN::RENDER -> Render incio home
-[08-Nov-2022 01:26:25 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:26:25 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:26:25 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:26:25 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:04 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:04 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:04 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:04 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:05 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:06 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:07 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:08 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:09 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 01:27:09 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 01:27:09 Europe/Berlin] Entra a sitio publico
-[08-Nov-2022 02:05:15 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
-[08-Nov-2022 02:05:15 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /Ecommerce/signup url -> signup
-[08-Nov-2022 02:05:15 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
-[08-Nov-2022 02:05:15 Europe/Berlin] Entra a sitio publico
+#0 C:\xampp\htdocs\ecommerce\models\userModel.php(108): Model->prepare('SELECT email FR...')
+#1 C:\xampp\htdocs\ecommerce\controllers\signupController.php(38): UserModel->exists('jjrojoa@hotmail...')
+#2 C:\xampp\htdocs\ecommerce\libs\app.php(40): SignupController->newUser()
+#3 C:\xampp\htdocs\ecommerce\index.php(22): App->__construct()
+#4 {main}
+  thrown in C:\xampp\htdocs\ecommerce\libs\model.php on line 19
+[08-Nov-2022 03:12:10 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:12:10 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup url -> signup
+[08-Nov-2022 03:12:10 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:12:10 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:13:18 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:13:18 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup url -> signup
+[08-Nov-2022 03:13:18 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:13:18 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:13:35 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:13:35 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup/newUser url -> signup
+[08-Nov-2022 03:13:35 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:13:35 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:13:35 Europe/Berlin] CONTROLLER:EXISTPOST: existen todos los parametros
+[08-Nov-2022 03:13:36 Europe/Berlin] USERMODEL::SAVE-> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES (?, ?, ?, ?, ?, ?)' at line 2
+[08-Nov-2022 03:13:36 Europe/Berlin] ERRORCONTROLLER::CONSTRUCT -> Inicio de Error
+[08-Nov-2022 03:21:59 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:21:59 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup url -> signup
+[08-Nov-2022 03:21:59 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:21:59 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:22:18 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:22:18 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup/newUser url -> signup
+[08-Nov-2022 03:22:18 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:22:18 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:22:18 Europe/Berlin] CONTROLLER:EXISTPOST: existen todos los parametros
+[08-Nov-2022 03:22:18 Europe/Berlin] USERMODEL::SAVE-> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'field list'
+[08-Nov-2022 03:22:19 Europe/Berlin] ERRORCONTROLLER::CONSTRUCT -> Inicio de Error
+[08-Nov-2022 03:23:31 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:23:31 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup url -> signup
+[08-Nov-2022 03:23:31 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:23:31 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:23:56 Europe/Berlin] SESSIONCONTROLLER::VALIDATESESSION
+[08-Nov-2022 03:23:56 Europe/Berlin] SESSIONCONTROLLER::GETCURRENTPAGE: link -> /ecommerce/signup/newUser url -> signup
+[08-Nov-2022 03:23:56 Europe/Berlin] SESSIONCONTROLLER::ISPUBLIC: currentURL -> signup
+[08-Nov-2022 03:23:56 Europe/Berlin] Entra a sitio publico
+[08-Nov-2022 03:23:56 Europe/Berlin] CONTROLLER:EXISTPOST: existen todos los parametros
+[08-Nov-2022 03:23:58 Europe/Berlin] ERRORCONTROLLER::CONSTRUCT -> Inicio de Error

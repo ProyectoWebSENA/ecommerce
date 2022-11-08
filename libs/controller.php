@@ -20,9 +20,9 @@ class Controller
   }
   function existsPOST($params)
   {
-    foreach($params as $param){
-      if(!isset($POST[$param])){
-        error_log("CONTROLLER::EXITSPOST -> no existe el parametro ". $param);
+    foreach ($params as $param) {
+      if (!isset($_POST[$param])) {
+        error_log("CONTROLLER::EXITSPOST -> no existe el parametro " . $param);
         return false;
       }
     }
@@ -31,21 +31,22 @@ class Controller
   }
   function getPost($name)
   {
-   return $_POST[$name];
+    return $_POST[$name];
   }
 
 
-  function redirect($url, $messages = []){
+  function redirect($url, $messages = [])
+  {
     $data = [];
     $params = [];
 
-    foreach($messages as $key => $value){
-      array_push($data,$key . '=' . $value);
+    foreach ($messages as $key => $value) {
+      array_push($data, $key . '=' . $value);
     }
-    
-    $params = join('&' , $data);
 
-    if($params != ''){
+    $params = join('&', $data);
+
+    if ($params != '') {
       $parans = '?' . $params;
     }
     header('Location: ' . constant('URL') . $url . $params);

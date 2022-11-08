@@ -7,7 +7,7 @@ class UserModel extends Model implements IModel
   private $email;
   private $cellphone;
   private $address;
-  private $hash_password;
+  private $password;
   private $role;
 
   public function __construct()
@@ -18,28 +18,28 @@ class UserModel extends Model implements IModel
     $this->email = "";
     $this->cellphone = 0;
     $this->address = "";
-    $this->hash_password = "";
+    $this->password = "";
     $this->role = "";
   }
 
   public function save()
   {
     try {
-      $query = $this->prepare("INSERT INTO usuarios (name, email, cellphone, address,
-      hash_password, role) ) VALUES (:name, :email, :cellphone, :address, :hash_password, :role)");
+      $query = $this->prepare("INSERT INTO usuarios (name, email, cellphone, address, password, role) VALUES (:name, :email, :cellphone, :address, :password, :role)");
       $query->execute([
-        "name" => $this->name,
-        "email" => $this->email,
-        "cellphone" => $this->cellphone,
-        "address" => $this->address,
-        "hash_password" => $this->hash_password,
-        "role" => $this->role
+        'name' => $this->name,
+        'email' => $this->email,
+        'cellphone' => $this->cellphone,
+        'address' => $this->address,
+        'password' => $this->password,
+        'role' => $this->role
       ]);
     } catch (PDOException $e) {
       error_log("USERMODEL::SAVE-> " . $e->getMessage());
       return false;
     }
   }
+
   public function get($id)
   {
     try {
@@ -51,7 +51,7 @@ class UserModel extends Model implements IModel
       $this->email = $user['email'];
       $this->cellphone = $user['cellphone'];
       $this->address = $user['address'];
-      $this->hash_password = $user['hash_password'];
+      $this->password = $user['password'];
       $this->role = $user['role'];
       return $this;
     } catch (PDOException $e) {
@@ -74,13 +74,13 @@ class UserModel extends Model implements IModel
   {
     try {
       $query = $this->prepare("UPDATE usuarios SET name = :name, email = :email, cellphone = :cellphone, 
-      address = :address, hash_password = :hash_password, role = :role WHERE id = :id");
+      address = :address, password = :password, role = :role WHERE id = :id");
       $query->execute([
         "name" => $this->name,
         "email" => $this->email,
         "ccellphone" => $this->cellphone,
         "address" => $this->address,
-        "hash_password" => $this->hash_password,
+        "password" => $this->password,
         "role" => $this->role,
         "id" => $this->id
       ]);
@@ -97,7 +97,7 @@ class UserModel extends Model implements IModel
     $this->email = $array['email'];
     $this->cellphone = $array['cellphone'];
     $this->address = $array['address'];
-    $this->hash_password = $array['hash_password'];
+    $this->password = $array['password'];
     $this->role = $array['role'];
   }
 
@@ -145,9 +145,9 @@ class UserModel extends Model implements IModel
   public function setPassword($password, $hash = true)
   {
     if ($hash) {
-      $this->hash_password = $this->getHashedPassword($password);
+      $this->password = $this->getHashedPassword($password);
     } else {
-      $this->hash_password  = $password;
+      $this->password  = $password;
     }
   }
   public function setRole($role)
@@ -178,7 +178,7 @@ class UserModel extends Model implements IModel
   }
   public function getPassword()
   {
-    return $this->hash_password;
+    return $this->password;
   }
   public function getRole()
   {
