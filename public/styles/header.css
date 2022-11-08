@@ -43,8 +43,8 @@
 .navbar-actions-container {
   position: absolute;
   top: 50px;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 80%;
   height: calc(100vh - 50px);
   display: none;
   flex-direction: column;
@@ -154,9 +154,10 @@
   text-decoration: none;
   color: black;
   font-size: 1.6rem;
+  text-align: center;
 }
 
-.profile-icon-actions-container {
+.mobile-profile-icon-actions-container {
   width: 100%;
   height: max-content;
   display: none;
@@ -171,11 +172,11 @@
   border-bottom-right-radius: 5px;
 }
 
-.active.profile-icon-actions-container {
+.active.mobile-profile-icon-actions-container {
   display: flex;
 }
 
-.profile-icon-actions-container a {
+.mobile-profile-icon-actions-container a {
   display: block;
   width: 100%;
   height: 40px;
@@ -189,7 +190,7 @@
   transition: all 200ms;
 }
 
-.profile-icon-actions-container a:hover {
+.mobile-profile-icon-actions-container a:hover {
   background-color: rgb(255, 153, 0);
 }
 
@@ -205,6 +206,10 @@
 
 .cart-icon:hover {
   background-color: rgb(255, 145, 0);
+}
+
+.desktop-profile-icon-actions-container {
+  display: none;
 }
 .burger {
   height: 80%;
@@ -242,6 +247,12 @@
 
 .active.burger .line:nth-of-type(3) {
   transform: translate(0, -3px) rotate(45deg);
+}
+
+@media screen and (min-width: 425px) {
+  .navbar-actions-container {
+    width: 60%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -315,11 +326,47 @@
     margin-top: 0;
   }
 
-  .profile-icon-actions-container {
+  .mobile-profile-icon-actions-container {
+    display: none !important;
+  }
+
+  .desktop-profile-icon-actions-container {
     position: absolute;
     top: 55px;
-    left: 10px;
+    right: 30px;
+    width: 200px;
+    height: max-content;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background-color: orange;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     z-index: 200;
+  }
+
+  .active.desktop-profile-icon-actions-container {
+    display: flex;
+  }
+
+  .desktop-profile-icon-actions-container a {
+    width: 90%;
+    height: 40px;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    transition: all 200ms;
+  }
+
+  .desktop-profile-icon-actions-container a:hover {
+    background-color: rgb(240, 156, 1);
   }
   .burger {
     display: none;

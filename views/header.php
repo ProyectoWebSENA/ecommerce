@@ -43,7 +43,7 @@
             <line x1="4" y1="17" x2="5" y2="17" />
           </svg>
         </div>
-        <div class="profile-icon-actions-container" id="profile-action-links">
+        <div class="mobile-profile-icon-actions-container" id="mobile-profile-action-links">
           <a href="">Ajustes de Cuenta</a>
           <a href="">Cerrar Sesión</a>
         </div>
@@ -59,6 +59,10 @@
           <div class="span-div"></div>
         </a>
       </div>
+    </div>
+    <div class="desktop-profile-icon-actions-container" id="desktop-profile-action-links">
+      <a href="">Ajustes de Cuenta</a>
+      <a href="">Cerrar Sesión</a>
     </div>
     <div class="burger" id="burger">
       <div class="line"></div>
