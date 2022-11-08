@@ -18,6 +18,7 @@ class Controller
       $this->model = new $modelName();
     }
   }
+
   function existsPOST($params)
   {
     foreach ($params as $param) {
@@ -26,14 +27,15 @@ class Controller
         return false;
       }
     }
+
     error_log("CONTROLLER:EXISTPOST: existen todos los parametros");
     return true;
   }
+
   function getPost($name)
   {
     return $_POST[$name];
   }
-
 
   function redirect($url, $messages = [])
   {

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/auth.css" />
-  <title>Iniciar Sesión | Ecommerce</title>
+  <title>Registrarse | Ecommerce</title>
 </head>
 
 <body>

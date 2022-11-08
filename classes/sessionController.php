@@ -9,6 +9,7 @@ class SessionController extends Controller
 
   private $session;
   private $sites;
+  private $defaultSites;
 
   private $user;
 
@@ -23,16 +24,15 @@ class SessionController extends Controller
   {
     return $this->userSession;
   }
-  public function getUsername()
 
+  public function getUsername()
   {
     return $this->username;
   }
 
   public function getUserId()
-
   {
-    return $this->userUserId;
+    return $this->userId;
   }
 
   private function init()
@@ -61,7 +61,7 @@ class SessionController extends Controller
     if ($this->existsSession()) {
       $role = $this->getUserSessionData()->getRole();
 
-      error_log("SESSIONCONTROLLER::VALIDATESESSION: username: " . $this->user->getUsername() . " - role: " . $this->user->getRole());
+      error_log("SESSIONCONTROLLER::VALIDATESESSION: username: " . $this->user->getName() . " - role: " . $this->user->getRole());
 
       if ($this->isPublic()) {
         $this->redirectDefaultSiteByRole($role);
@@ -79,7 +79,7 @@ class SessionController extends Controller
         error_log("Entra a sitio publico");
       } else {
         error_log("No autorizado, redirige a la pagina login");
-        header('Location: ' . constant('URL') . '/login');
+        header('Location: ' . constant('URL') . 'login');
       }
     }
   }
@@ -102,7 +102,7 @@ class SessionController extends Controller
     $id = $this->session->getCurentUser();
     $this->user = new UserModel();
     $this->user->get($id);
-    error_log("SESSIONCONTROLLER::GETUSERSESSIONDATA: " . $this->user->getUsername());
+    error_log("SESSIONCONTROLLER::GETUSERSESSIONDATA: " . $this->user->getName());
     return $this->user;
   }
 
@@ -157,7 +157,7 @@ class SessionController extends Controller
   public function initialize($user)
   {
 
-    error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getUsername());
+    error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getName());
     $this->session->setCurrentUser($user->getId());
     $this->authorizeAccess($user->getRole());
   }

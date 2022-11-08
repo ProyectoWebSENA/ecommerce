@@ -60,6 +60,7 @@ class UserModel extends Model implements IModel
       return false;
     }
   }
+
   public function delete($id)
   {
     try {
@@ -71,6 +72,7 @@ class UserModel extends Model implements IModel
       return false;
     }
   }
+
   public function update()
   {
     try {
@@ -91,6 +93,7 @@ class UserModel extends Model implements IModel
       return false;
     }
   }
+
   public function from($array)
   {
     $this->id = $array['id'];
@@ -126,13 +129,15 @@ class UserModel extends Model implements IModel
     return false;
   }
 
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
   private function getHashedPassword($password)
   {
     return password_hash($password, PASSWORD_ARGON2I, ['cost' => 10]);
+  }
+
+  //Metodos Setters
+  public function setId($id)
+  {
+    $this->id = $id;
   }
   public function setName($name)
   {
@@ -163,7 +168,7 @@ class UserModel extends Model implements IModel
     $this->role = $role;
   }
 
-
+  //Metodos Getters
   public function getId()
   {
     return $this->id;
