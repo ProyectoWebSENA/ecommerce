@@ -19,12 +19,12 @@ class App
     $url = rtrim($url, '/');
     $url = explode('/', $url);
 
-    $archController = 'controllers' . $url[0] . 'Controller.php';
+    $archController = 'controllers/' . $url[0] . 'Controller.php';
 
     if (file_exists($archController)) {
       require_once $archController;
-      $controller = new $url[0];
-      $controller->loadModel($url[0]);
+      $controllerName = $url[0] . 'Controller';
+      $controller = new $controllerName;
       if (isset($url[1])) {
         if (method_exists($controller, $url[1])) {
           if (isset($url[2])) {
@@ -35,14 +35,13 @@ class App
               array_push($params, $url[$i] + 2);
             }
 
-            $controller->{$url[1]($params)};
+            $controller->{$url[1]}($params);
           } else {
-            $controller->{$url[1]()};
+            $controller->{$url[1]}();
           }
         } else {
           //No existe el metodo -> 404
           $controller = new ErrorController();
-          $controller->render();
         }
       } else {
         $controller->render();
@@ -50,7 +49,6 @@ class App
     } else {
       //No existe el controlador -> 404
       $controller = new ErrorController();
-      $controller->render();
     }
   }
 }
