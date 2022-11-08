@@ -158,6 +158,7 @@ class SessionController extends Controller
   {
     error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getName());
     $this->session->setCurrentUser($user->getId());
+    $this->session->setUsername($user->getName());
     $this->authorizeAccess($user->getRole());
   }
 
