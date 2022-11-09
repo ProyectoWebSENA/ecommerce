@@ -99,7 +99,7 @@ class SessionController extends Controller
 
   function getUserSessionData()
   {
-    $id = $this->session->getCurentUser();
+    $id = $this->session->getCurrentUser();
     $this->user = new UserModel();
     $this->user->get($id);
     error_log("SESSIONCONTROLLER::GETUSERSESSIONDATA: " . $this->user->getName());
@@ -158,6 +158,7 @@ class SessionController extends Controller
   {
     error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getName());
     $this->session->setCurrentUser($user->getId());
+    $this->session->setUsername($user->getName());
     $this->authorizeAccess($user->getRole());
   }
 

@@ -1,3 +1,7 @@
+<?php
+$sessiom = new Session();
+?>
+
 <header class="header">
   <nav class="navbar">
     <div class="trademark-container">
@@ -25,7 +29,15 @@
             <circle cx="12" cy="7" r="4" />
             <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
           </svg>
-          <p>Nombre Usuario</p>
+          <p>
+            <?php
+            if (isset($_SESSION['user']) && isset($_SESSION['username'])) {
+              echo $_SESSION['username'];
+            } else {
+              echo "Nombre";
+            }
+            ?>
+          </p>
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fold-down" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round" id="arrow-down">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 11v8l3 -3m-6 0l3 3" />
@@ -44,8 +56,18 @@
           </svg>
         </div>
         <div class="mobile-profile-icon-actions-container" id="mobile-profile-action-links">
-          <a href="">Ajustes de Cuenta</a>
-          <a href="">Cerrar Sesión</a>
+          <?php
+          if (isset($_SESSION['user'])) {
+            echo '
+                <a href="">Ajustes de Cuenta</a>
+                <a href="">Cerrar Sesión</a>
+              ';
+          } else {
+            echo '
+              <a href="/login">Iniciar Sesión</a>
+              ';
+          }
+          ?>
         </div>
         <a href="" class="cart-icon ">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -61,8 +83,18 @@
       </div>
     </div>
     <div class="desktop-profile-icon-actions-container" id="desktop-profile-action-links">
-      <a href="">Ajustes de Cuenta</a>
-      <a href="">Cerrar Sesión</a>
+      <?php
+      if (isset($_SESSION['user'])) {
+        echo '
+                <a href="">Ajustes de Cuenta</a>
+                <a href="">Cerrar Sesión</a>
+              ';
+      } else {
+        echo '
+                <a href="/ecommerce/login">Iniciar Sesión</a>
+              ';
+      }
+      ?>
     </div>
     <div class="burger" id="burger">
       <div class="line"></div>

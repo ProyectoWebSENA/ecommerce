@@ -8,22 +8,23 @@
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/header.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/home.css" />
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/category.css" />
   <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
   <title>Categoria | Ecommerce</title>
 </head>
 
 <body>
 <?php include_once 'views/header.php' ?>
-  <h1 class="page-title">HOLA DESDE LA PAGINA PRINCIPAL</h1>
+  <h1 class="page-title">Sección Moda</h1>
   <section class="section">
-    <h2 class="cards-container-title">Electrodomesticos</h2>
+    <h2 class="cards-container-title">Gorras</h2>
     <div class="cards-container">
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/lavadora.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/gorra1.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>Lavadora</h3>
+          <h3>Gorra roja</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -31,10 +32,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/microondas.jpeg">
+          <img src="<?php echo constant('URL') ?>public/images/gorra2.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>microondas</h3>
+          <h3>Gorra azul y rojo</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -42,10 +43,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/nevera.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/gorra3.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>Nevera</h3>
+          <h3>gorra negra </h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -53,10 +54,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/licuadora.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/gorra4.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>Licuadora</h3>
+          <h3>gorra azul</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -66,14 +67,14 @@
 
 
     <section class="section">
-    <h2 class="cards-container-title">Juguetes</h2>
+    <h2 class="cards-container-title">busos</h2>
     <div class="cards-container">
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/juguete1.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/buso1.png">
         </figure>
         <div class="card-desc-container">
-          <h3>hot weels</h3>
+          <h3>buso azul</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -81,10 +82,10 @@
 
     <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/juguete2.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/buso2.png">
         </figure>
         <div class="card-desc-container">
-          <h3>naruto </h3>
+          <h3>buso negro </h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -92,10 +93,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/juguete3.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/buso3.png">
         </figure>
         <div class="card-desc-container">
-          <h3>mario bros</h3>
+          <h3>buso blanco</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -103,10 +104,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/juguete4.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/buso4.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>max steel</h3>
+          <h3>buso mostaza</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -116,14 +117,14 @@
   </section>
 
   <section class="section">
-    <h2 class="cards-container-title">Moda</h2>
+    <h2 class="cards-container-title">jeans</h2>
     <div class="cards-container">
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/ropa1.png">
+          <img src="<?php echo constant('URL') ?>public/images/jean1.png">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>jean clasico</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -132,10 +133,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/ropa2.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/jean2.png">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>jean mostaza</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -143,10 +144,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/ropa3.jpg">
+          <img src="<?php echo constant('URL') ?>public/images/jean3.png">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>jean negro</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -154,10 +155,10 @@
 
       <div class="card">
         <figure class="card-img-container ">
-          <img src="<?php echo constant('URL') ?>public/images/ropa4.jpeg">
+          <img src="<?php echo constant('URL') ?>public/images/jean4.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>jean pintado</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
