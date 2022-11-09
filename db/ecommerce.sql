@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2022 a las 20:15:39
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.31
+-- Tiempo de generación: 09-11-2022 a las 02:17:31
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,29 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ecommerce`
 --
-DROP DATABASE IF EXISTS ecommerce;
 CREATE DATABASE ecommerce;
 USE ecommerce;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carrito`
+-- Estructura de tabla para la tabla `cart`
 --
 
-CREATE TABLE `carrito` (
-  `id` varchar(10) NOT NULL,
-  `id_user` varchar(20) NOT NULL,
-  `total_price` float NOT NULL
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `id_user1` int(11) NOT NULL,
+  `total_price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Estructura de tabla para la tabla `categories`
 --
 
-CREATE TABLE `categorias` (
-  `id` varchar(10) NOT NULL,
+CREATE TABLE `categories` (
+  `cat_code` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -53,38 +52,53 @@ CREATE TABLE `categorias` (
 --
 
 CREATE TABLE `cat_prod` (
-  `id` varchar(10) NOT NULL,
-  `id_cat` varchar(10) NOT NULL,
-  `id_prod` varchar(10) NOT NULL
+  `id` int(11) NOT NULL,
+  `cat_code1` int(11) NOT NULL,
+  `prod_code1` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla `products`
 --
 
-CREATE TABLE `productos` (
+CREATE TABLE `products` (
   `prod_code` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `description` mediumtext NOT NULL,
-  `prod_pic_url` text NOT NULL,
-  `type_prod` varchar(100) NOT NULL
+  `prod_pic_url` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `resenas`
+-- Estructura de tabla para la tabla `reviews`
 --
 
-CREATE TABLE `resenas` (
-  `id` varchar(10) NOT NULL,
-  `id_user` varchar(20) NOT NULL,
-  `id_prod` varchar(10) NOT NULL,
-  `stars` int(11) NOT NULL,
-  `rewiew` text NOT NULL
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `id_user1` int(11) NOT NULL,
+  `prod_code1` int(11) NOT NULL,
+  `stars` tinyint(1) NOT NULL,
+  `comment` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `cellphone` bigint(20) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `password` text NOT NULL,
+  `role` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -95,25 +109,9 @@ CREATE TABLE `resenas` (
 
 CREATE TABLE `user_cart` (
   `id` int(11) NOT NULL,
-  `id_cart` varchar(10) NOT NULL,
-  `id_prod` varchar(10) NOT NULL,
+  `id_cart1` int(11) NOT NULL,
+  `prod_code1` int(11) NOT NULL,
   `prod_quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `cellphone` bigint(20) NOT NULL,
-  `direccion` varchar(255) NOT NULL,
-  `password` text NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -121,32 +119,81 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indices de la tabla `productos`
+-- Indices de la tabla `cart`
 --
-ALTER TABLE `productos`
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user1`);
+
+--
+-- Indices de la tabla `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`cat_code`);
+
+--
+-- Indices de la tabla `cat_prod`
+--
+ALTER TABLE `cat_prod`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat_code1` (`cat_code1`),
+  ADD KEY `prod_code1` (`prod_code1`);
+
+--
+-- Indices de la tabla `products`
+--
+ALTER TABLE `products`
   ADD PRIMARY KEY (`prod_code`);
 
 --
--- Indices de la tabla `resenas`
+-- Indices de la tabla `reviews`
 --
-ALTER TABLE `resenas`
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user1` (`id_user1`),
+  ADD KEY `prod_code1` (`prod_code1`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `user_cart`
 --
 ALTER TABLE `user_cart`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_cart1` (`id_cart1`),
+  ADD KEY `prod_code1` (`prod_code1`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cat_prod`
+--
+ALTER TABLE `cat_prod`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `user_cart`
@@ -155,10 +202,35 @@ ALTER TABLE `user_cart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- Restricciones para tablas volcadas
 --
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Filtros para la tabla `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `cat_prod`
+--
+ALTER TABLE `cat_prod`
+  ADD CONSTRAINT `cat_prod_ibfk_1` FOREIGN KEY (`cat_code1`) REFERENCES `categories` (`cat_code`),
+  ADD CONSTRAINT `cat_prod_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
+
+--
+-- Filtros para la tabla `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
+
+--
+-- Filtros para la tabla `user_cart`
+--
+ALTER TABLE `user_cart`
+  ADD CONSTRAINT `user_cart_ibfk_1` FOREIGN KEY (`id_cart1`) REFERENCES `cart` (`id`),
+  ADD CONSTRAINT `user_cart_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

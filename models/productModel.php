@@ -2,7 +2,7 @@
 
 class ProductModel extends Model implements IModel
 {
-    private $productCode;
+    private $prodCode;
     private $name;
     private $price;
     private $description;
@@ -12,7 +12,7 @@ class ProductModel extends Model implements IModel
     public function __construct()
     {
         parent::__construct();
-        $this->productCode = 0;
+        $this->prodCode = 0;
         $this->name = "";
         $this->price = 0.0;
         $this->description = "";
@@ -22,15 +22,15 @@ class ProductModel extends Model implements IModel
     public function save()
     {
         try {
-            $query = $this->prepare("INSERT INTO productos ( prod_code,name, price, description, prod_pic_url, tipo_prod) 
-                VALUES (:prod_code,:name, :price, :description, :prod_pic_url, :tipo_prod)");
+            $query = $this->prepare("INSERT INTO products 
+                (prod_code,name, price, description, prod_pic_url) 
+                VALUES (:prod_code,:name, :price, :description, :prod_pic_url)");
             $query->execute([
-                'prod_code' => $this->productCode,
+                'prod_code' => $this->prodCode,
                 'name' => $this->name,
                 'price' => $this->price,
                 'description' => $this->description,
-                'prod_pic_url' => $this->prodPicUrl,
-                'tipo_prod' => $this->typeProd
+                'prod_pic_url' => $this->prodPicUrl
             ]);
             return true;
         } catch (PDOException $e) {
@@ -39,18 +39,19 @@ class ProductModel extends Model implements IModel
         }
     }
 
-    public function get($productCode)
+    public function get($prodCode)
     {
         try {
-            $query = $this->prepare("SELECT * FROM productos WHERE prod_code = :prod_code");
-            $query->execute(['prod_code' => $productCode]);
+            $query = $this->prepare("SELECT * 
+                FROM products 
+                WHERE prod_code = :prod_code");
+            $query->execute(['prod_code' => $prodCode]);
             $product = $query->fetch(PDO::FETCH_ASSOC);
-            $this->productCode = $product['prod_code'];
+            $this->prodCode = $product['prod_code'];
             $this->name = $product['name'];
             $this->price = $product['price'];
             $this->description = $product['description'];
             $this->proPicUrl = $product['prod_pic_url'];
-            $this->typeProd = $product['tipo_prod'];
             return $this;
         } catch (PDOException $e) {
             error_log("PRODUCTMODEL::GET -> " . $e->getMessage());
@@ -61,15 +62,14 @@ class ProductModel extends Model implements IModel
     public function getAll()
     {
         try {
-            $query = $this->prepare("SELECT * FROM productos");
+            $query = $this->prepare("SELECT * FROM products");
             $query->execute();
             $product = $query->fetch(PDO::FETCH_ASSOC);
-            $this->productCode = $product['prod_code'];
+            $this->prodCode = $product['prod_code'];
             $this->name = $product['name'];
             $this->price = $product['price'];
             $this->description = $product['description'];
             $this->proPicUrl = $product['prod_pic_url'];
-            $this->typeProd = $product['tipo_prod'];
             return $this;
         } catch (PDOException $e) {
             error_log("PRODUCTMODEL::GETALL -> " . $e->getMessage());
@@ -79,15 +79,16 @@ class ProductModel extends Model implements IModel
     public function getAllWithParameter($name)
     {
         try {
-            $query = $this->prepare("SELECT * FROM productos WHERE name  like '%':name'%'");
+            $query = $this->prepare("SELECT * 
+                FROM products 
+                WHERE name  like '%':name'%'");
             $query->execute(['name' => $name]);
             $product = $query->fetch(PDO::FETCH_ASSOC);
-            $this->productCode = $product['prod_code'];
+            $this->prodCode = $product['prod_code'];
             $this->name = $product['name'];
             $this->price = $product['price'];
             $this->description = $product['description'];
             $this->proPicUrl = $product['prod_pic_url'];
-            $this->typeProd = $product['tipo_prod'];
             return $this;
         } catch (PDOException $e) {
             error_log("PRODUCTMODEL::GETALLWITHPARAMETER -> " . $e->getMessage());
@@ -95,11 +96,12 @@ class ProductModel extends Model implements IModel
         }
     }
 
-    public function delete($productCode)
+    public function delete($prodCode)
     {
         try {
-            $query = $this->prepare("DELETE FROM productos WHERE prod_code = :prod_code");
-            $query->execute(['prod_code' => $productCode]);
+            $query = $this->prepare("DELETE FROM products 
+            WHERE prod_code = :prod_code");
+            $query->execute(['prod_code' => $prodCode]);
             return true;
         } catch (PDOException $e) {
             error_log("productMODEL::DELETE ->" . $e->getMessage());
@@ -110,15 +112,16 @@ class ProductModel extends Model implements IModel
     public function update()
     {
         try {
-            $query = $this->prepare("UPDATE productos SET name = :name, price = :price, description = :description, 
-                prod_pic_url = :prod_pic_url, tipo_prod = :tipo_prod WHERE prod_code = :prod_code");
+            $query = $this->prepare("UPDATE products 
+                SET name = :name, price = :price, description = :description, 
+                prod_pic_url = :prod_pic_url 
+                WHERE prod_code = :prod_code");
             $query->execute([
                 'name' => $this->name,
                 'price' => $this->price,
                 'description' => $this->description,
                 'prod_pic_url' => $this->prodPicUrl,
-                'tipo_prod' => $this->typeProd,
-                'prod_code' => $this->productCode
+                'prod_code' => $this->prodCode
             ]);
             return true;
         } catch (PDOException $e) {
@@ -129,19 +132,20 @@ class ProductModel extends Model implements IModel
 
     public function from($array)
     {
-        $this->productCode = $array['prod_code'];
+        $this->prodCode = $array['prod_code'];
         $this->name = $array['name'];
         $this->price = $array['price'];
         $this->description = $array['description'];
         $this->prodPicUrl = $array['prod_pic_url'];
-        $this->typeProd = $array['tipo_prod'];
     }
 
-    public function exists($productCode)
+    public function exists($prodCode)
     {
         try {
-            $query = $this->prepare("SELECT prod_code FROM productos WHERE prod_code = :prod_code");
-            $query->execute(['prod_code' => $productCode]);
+            $query = $this->prepare("SELECT prod_code 
+                FROM products 
+                WHERE prod_code = :prod_code");
+            $query->execute(['prod_code' => $prodCode]);
             $query->fetch(PDO::FETCH_ASSOC);
             if ($query->rowCount() > 0) {
                 return true;
@@ -149,15 +153,15 @@ class ProductModel extends Model implements IModel
                 return false;
             }
         } catch (PDOException $e) {
-            error_log("PRODUCTMODEL::GET -> " . $e->getMessage());
+            error_log("PRODUCTMODEL::EXISTS -> " . $e->getMessage());
             return false;
         }
     }
 
     //Metodos Setters
-    public function setProductCode($productCode)
+    public function setprodCode($prodCode)
     {
-        $this->productCode = $productCode;
+        $this->prodCode = $prodCode;
     }
     public function setName($name)
     {
@@ -181,9 +185,9 @@ class ProductModel extends Model implements IModel
     }
 
     //Metodos Getters
-    public function getProductCode()
+    public function getprodCode()
     {
-        return $this->productCode;
+        return $this->prodCode;
     }
     public function getName()
     {

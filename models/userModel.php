@@ -13,7 +13,7 @@ class UserModel extends Model implements IModel
   public function __construct()
   {
     parent::__construct();
-    $this->id = "";
+    $this->id = 0;
     $this->name = "";
     $this->email = "";
     $this->cellphone = 0;
@@ -25,7 +25,9 @@ class UserModel extends Model implements IModel
   public function save()
   {
     try {
-      $query = $this->prepare("INSERT INTO usuarios (name, email, cellphone, address, password, role) VALUES (:name, :email, :cellphone, :address, :password, :role)");
+      $query = $this->prepare("INSERT INTO users 
+        (name, email, cellphone, address, password, role) 
+        VALUES (:name, :email, :cellphone, :address, :password, :role)");
       $query->execute([
         'name' => $this->name,
         'email' => $this->email,
@@ -44,7 +46,9 @@ class UserModel extends Model implements IModel
   public function get($id)
   {
     try {
-      $query = $this->prepare("SELECT * FROM usuarios Where id = :id");
+      $query = $this->prepare("SELECT * 
+        FROM users 
+        WHERE id = :id");
       $query->execute(['id' => $id]);
       $user = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -64,7 +68,8 @@ class UserModel extends Model implements IModel
   public function delete($id)
   {
     try {
-      $query = $this->prepare("DELETE FROM usuarios Where id = :id");
+      $query = $this->prepare("DELETE FROM users 
+        WHERE id = :id");
       $query->execute(['id' => $id]);
       return true;
     } catch (PDOException $e) {
@@ -76,8 +81,10 @@ class UserModel extends Model implements IModel
   public function update()
   {
     try {
-      $query = $this->prepare("UPDATE usuarios SET name = :name, email = :email, cellphone = :cellphone, 
-      address = :address, password = :password, role = :role WHERE id = :id");
+      $query = $this->prepare("UPDATE users 
+        SET name = :name, email = :email, cellphone = :cellphone, 
+        address = :address, password = :password, role = :role 
+        WHERE id = :id");
       $query->execute([
         "name" => $this->name,
         "email" => $this->email,
@@ -108,7 +115,9 @@ class UserModel extends Model implements IModel
   public function exists($email)
   {
     try {
-      $query = $this->prepare("SELECT email FROM usuarios Where email = :email");
+      $query = $this->prepare("SELECT email 
+        FROM users 
+        WHERE email = :email");
       $query->execute(['email' => $email]);
       $query->fetch(PDO::FETCH_ASSOC);
       if ($query->rowCount() > 0) {
@@ -117,7 +126,7 @@ class UserModel extends Model implements IModel
         return false;
       }
     } catch (PDOException $e) {
-      error_log("USERMODEL::GET -> " . $e->getMessage());
+      error_log("USERMODEL::EXISTS -> " . $e->getMessage());
       return false;
     }
   }
