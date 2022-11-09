@@ -21,6 +21,11 @@ class Session
     $_SESSION['username'] = $user;
   }
 
+  public function setRole($user)
+  {
+    $_SESSION['role'] = $user;
+  }
+
   public function getCurrentUser()
   {
     return $_SESSION[$this->sessionName];
