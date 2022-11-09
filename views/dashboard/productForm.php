@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -8,21 +8,31 @@
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/form.css" />
   <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
   <title>Nuevo Producto | Ecommerce</title>
-</head>
+</head> -->
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <body>
   <h1> Nuevo Producto </h1>
   <section class="form-register">
     <form action="<?php echo constant('URL') ?>dashboard/registerProduct" method="POST">
-      <input class="controls" type="number" name="code" id="code" placeholder="codigo">
+      <input class="controls" type="number" name="prod_code" id="prod_code" placeholder="codigo">
+      <input class="controls" type="text" name="name" id="name" placeholder="nombre">
       <input class="controls" type="number" name="price" id="price" placeholder="precio">
-      <input class="controls" type="text" name="Description" id="Description" placeholder="descripción">
-      <input class="controls" type="" name="name" id="name" placeholder="url-img">
-      <input class="controls" type="id" name="product" id="product" placeholder="tipo de producto">
+      <input class="controls" type="text" name="description" id="description" placeholder="descripción">
+      <input class="controls" type="text" name="prod_pic_url" id="prod_pic_url" placeholder="url-img">
       <input class="botons" type="submit" value="Agregar Producto">
     </form>
   </section>
 
 </body>
-
-</html>
+<!-- 
+</html> -->

@@ -14,6 +14,12 @@ if ($url[3] === "searchAllUser") {
 } elseif ($url[3] === "searchAllProducts") {
     $view = "products";
     $activate3 = "active";
+} elseif ($url[3] === "searchUser") {
+    $view = "updateUser";
+} elseif ($url[3] === "viewRegisterProduct") {
+    $view = "productForm";
+} elseif ($url[3] === "viewUpdateProduct") {
+    $view = "updateProduct";
 }
 ?>
 
@@ -31,6 +37,7 @@ if ($url[3] === "searchAllUser") {
     <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
     <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/dashboard.css" />
     <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
+
 </head>
 
 <body>
@@ -56,6 +63,12 @@ if ($url[3] === "searchAllUser") {
                 <a href="<?php echo constant('URL') ?>dashboard/searchAllProducts" class="<?php echo $activate3 ?>">
                     <i class='bx bx-list-ul'></i>
                     <span class="links_name">Productos</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo constant('URL') ?>dashboard/viewRegisterProduct" class="<?php echo $activate3 ?>">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Crear producto</span>
                 </a>
             </li>
 

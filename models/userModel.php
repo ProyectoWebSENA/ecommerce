@@ -62,7 +62,7 @@ class UserModel extends Model implements IModel
         WHERE id = :id");
       $query->execute(['id' => $id]);
       $user = $query->fetch(PDO::FETCH_ASSOC);
-
+      $this->id = $user['id'];
       $this->name = $user['name'];
       $this->email = $user['email'];
       $this->cellphone = $user['cellphone'];

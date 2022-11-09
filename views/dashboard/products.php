@@ -17,10 +17,10 @@
                 <div class="cell" data-title="Descripcion"><?php echo $data['description']; ?></div>
                 <div class="cell" data-title="URL imagen"><?php echo $data['prod_pic_url']; ?></div>
                 <div class="cell" data-title="Actualizar">
-                    <a href="" class="table-btn">Actualizar</a>
+                    <a href="<?php echo constant('URL') . "dashboard/viewUpdateProduct/?prod_code=" . $data['prod_code'] ?>" class="table-btn">Actualizar</a>
                 </div>
                 <div class="cell" data-title="Eliminar">
-                    <a href="" class="table-btn">Eliminar</a>
+                    <a href="<?php echo constant('URL') . "dashboard/deleteProduct/?prod_code=" . $data['prod_code'] ?>" class="table-btn">Eliminar</a>
                 </div>
             </div>
         <?php endforeach; ?>

@@ -17,10 +17,10 @@
                 <div class="cell" data-title="# Celular"><?php echo $data['cellphone']; ?></div>
                 <div class="cell" data-title="Direccion"><?php echo $data['address']; ?></div>
                 <div class="cell" data-title="Actualizar">
-                    <a href="" class="table-btn">Actualizar</a>
+                    <a href="<?php echo constant('URL')."dashboard/searchUser/?id=".$data['id']?>"  class="table-btn">Actualizar</a>
                 </div>
                 <div class="cell" data-title="Eliminar">
-                    <a href="" class="table-btn">Eliminar</a>
+                    <a href="<?php echo constant('URL')."dashboard/deleteUser/?id=".$data['id']?>" class="table-btn">Eliminar</a>
                 </div>
             </div>
         <?php endforeach; ?>

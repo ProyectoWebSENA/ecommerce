@@ -7,7 +7,6 @@ class ProductModel extends Model implements IModel
   private $price;
   private $description;
   private $prodPicUrl;
-  private $typeProd;
 
   public function __construct()
   {
@@ -17,7 +16,6 @@ class ProductModel extends Model implements IModel
     $this->price = 0.0;
     $this->description = "";
     $this->prodPicUrl = "";
-    $this->typeProd = "";
   }
   public function save()
   {
@@ -51,7 +49,7 @@ class ProductModel extends Model implements IModel
       $this->name = $product['name'];
       $this->price = $product['price'];
       $this->description = $product['description'];
-      $this->proPicUrl = $product['prod_pic_url'];
+      $this->prodPicUrl = $product['prod_pic_url'];
       return $this;
     } catch (PDOException $e) {
       error_log("PRODUCTMODEL::GET -> " . $e->getMessage());
@@ -174,11 +172,6 @@ class ProductModel extends Model implements IModel
   {
     $this->prodPicUrl = $prodPicUrl;
   }
-  public function setTypeProd($typeProd)
-  {
-    $this->typeProd = $typeProd;
-  }
-
   //Metodos Getters
   public function getprodCode()
   {
@@ -200,8 +193,5 @@ class ProductModel extends Model implements IModel
   {
     return $this->prodPicUrl;
   }
-  public function getTypeProd()
-  {
-    return $this->typeProd;
-  }
+  
 }

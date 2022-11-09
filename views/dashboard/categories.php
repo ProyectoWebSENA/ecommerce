@@ -14,7 +14,7 @@
                     <a href="" class="table-btn">Actualizar</a>
                 </div>
                 <div class="cell" data-title="Eliminar">
-                    <a href="" class="table-btn">Eliminar</a>
+                    <a href="<?php echo constant('URL')."dashboard/deleteCategory/?cat_code=".$data['cat_code']?>" class="table-btn">Eliminar</a>
                 </div>
             </div>
         <?php endforeach; ?>
