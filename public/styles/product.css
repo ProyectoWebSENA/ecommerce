@@ -1,0 +1,30 @@
+.columns_container{
+    margin: auto;   
+   }
+   .products_columns{
+       width: 50%;
+       float: left;
+       box-sizing: border-box;
+       margin: auto;
+       text-align: center;
+       display: block;
+       justify-content: center;
+       align-items: center;
+   }
+   .products_text{
+       text-align: center;
+       display: block;
+   
+   }
+   .products_columns img{
+       border-radius: 10%;
+   }
+   .products_review{
+       padding: 4px;
+       background-color: rgb(255, 174, 0);
+       clear: both;
+   }
+   
+   .usuary_review{
+       display: inline-block;
+   }
