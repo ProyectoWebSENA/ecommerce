@@ -20,6 +20,10 @@ if ($url[3] === "searchAllUser") {
     $view = "productForm";
 } elseif ($url[3] === "viewUpdateProduct") {
     $view = "updateProduct";
+} elseif ($url[3] === "viewRegisterCategory") {
+    $view = "registerCategory";
+} elseif ($url[3] === "viewUpdateCategory") {
+    $view = "updateCategory";
 }
 ?>
 
@@ -60,6 +64,12 @@ if ($url[3] === "searchAllUser") {
                 </a>
             </li>
             <li>
+                <a href="<?php echo constant('URL') ?>dashboard/viewRegisterCategory" class="<?php echo $activate2 ?>">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Crear categoria</span>
+                </a>
+            </li>
+            <li>
                 <a href="<?php echo constant('URL') ?>dashboard/searchAllProducts" class="<?php echo $activate3 ?>">
                     <i class='bx bx-list-ul'></i>
                     <span class="links_name">Productos</span>
@@ -71,7 +81,6 @@ if ($url[3] === "searchAllUser") {
                     <span class="links_name">Crear producto</span>
                 </a>
             </li>
-
             <li class="log_out">
                 <a href="/ecommerce/logout">
                     <i class='bx bx-log-out'></i>

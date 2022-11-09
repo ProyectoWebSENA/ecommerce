@@ -78,6 +78,76 @@ class DashboardController extends SessionController
     $data = $category->getAll();
     $this->view->render('dashboard/template', $data);
   }
+  public function viewRegisterCategory()
+  {
+    $this->view->render('dashboard/template');
+  }
+
+  public function viewUpdateCategory()
+  {
+    $catCode = $_GET['cat_code'];
+    $categoryModel = new CategoryModel();
+    $data = $categoryModel->get($catCode);
+    $this->view->render('dashboard/template', $data);
+  }
+
+  public function registerCategory()
+  {
+    if ($this->existsPOST(['cat_code', 'name'])) {
+      $catCode = $this->getPost('cat_code');
+      $name = $this->getPost('name');
+
+      if ($catCode == '' || empty($catCode) || $name == '' || empty($name)) {
+        error_log("ADMINPRODUCTCONTROLLER::REGISTERCATEGORY empty");
+        $this->redirect('product', ['error' => 'Campos vacios']);
+        return false;
+      }
+      $categoryModel = new CategoryModel();
+      $categoryModel->setCatCode($catCode);
+      $categoryModel->setName($name);
+
+      if ($categoryModel->exists($catCode)) {
+        $this->redirect('product', ['error' => "La categoria ya existe"]);
+      }
+
+      if ($categoryModel->save()) {
+        $this->redirect('', ['success' => "Categoria registrada correctamente"]);
+      } else {
+        $this->redirect('product', ['error' => "Error inesperado"]);
+      }
+    } else {
+      error_log("ADMINPRODUCTCONTROLLER::REGISTERCATEGORY error con los parametros");
+      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+    }
+
+  }
+
+  public function updateCategory()
+  {
+    if ($this->existsPOST(['cat_code', 'name'])) {
+      $catCode = $this->getPost('cat_code');
+      $name = $this->getPost('name');
+
+      if ($catCode == '' || empty($catCode) || $name == '' || empty($name)) {
+        error_log("ADMINPRODUCTCONTROLLER::UPDATECATEGORY empty");
+        $this->redirect('product', ['error' => 'Campos vacios']);
+        return false;
+      }
+      $categoryModel = new CategoryModel();
+      $categoryModel->setCatCode($catCode);
+      $categoryModel->setName($name);
+
+      if ($categoryModel->update()) {
+        $this->redirect('', ['success' => "Categoria modificada correctamente"]);
+      } else {
+        $this->redirect('product', ['error' => "Error inesperado"]);
+      }
+    } else {
+      error_log("ADMINPRODUCTCONTROLLER::UPDATECATEGORY error con los parametros");
+      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+    }
+
+  }
 
   public function deleteCategory()
   {
@@ -139,7 +209,7 @@ class DashboardController extends SessionController
         $this->redirect('product', ['error' => "Error inesperado"]);
       }
     } else {
-      error_log("PRODUCT::REGISTERPRODUCT error con los parametros");
+      error_log("ADMINPRODUCTCONTROLLER::REGISTERPRODUCT error con los parametros");
       $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
