@@ -123,7 +123,7 @@
           <img src="<?php echo constant('URL') ?>public/images/ropa1.png">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>gorra</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -135,7 +135,7 @@
           <img src="<?php echo constant('URL') ?>public/images/ropa2.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>camibuso</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -146,7 +146,7 @@
           <img src="<?php echo constant('URL') ?>public/images/ropa3.jpg">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>zapatos</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
@@ -157,7 +157,7 @@
           <img src="<?php echo constant('URL') ?>public/images/ropa4.jpeg">
         </figure>
         <div class="card-desc-container">
-          <h3>contenido</h3>
+          <h3>camiseta</h3>
           <p>$100000</p>
           <a href="#">ver mas</a>
         </div>
