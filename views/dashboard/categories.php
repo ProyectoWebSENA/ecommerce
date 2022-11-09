@@ -1,14 +1,14 @@
 <div class="table-container">
     <div class="table">
         <div class="row header">
-            <div class="cell">Codigo categoria</div>
+            <div class="cell">Còdigo categorìa</div>
             <div class="cell">Nombre</div>
             <div class="cell">Actualizar</div>
             <div class="cell">Eliminar</div>
         </div>
         <?php foreach ($dataForTheTable as $data) : ?>
             <div class="row">
-                <div class="cell" data-title="Codigo categoria"><?php echo $data['cat_code']; ?></div>
+                <div class="cell" data-title="Còdigo categorìa"><?php echo $data['cat_code']; ?></div>
                 <div class="cell" data-title="Nombre"><?php echo $data['name']; ?></div>
                 <div class="cell" data-title="Actualizar">
                     <a href="" class="table-btn">Actualizar</a>

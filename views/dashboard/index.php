@@ -34,7 +34,7 @@ $users = $this->data;
       <li>
         <a href="#">
           <i class='bx bx-box'></i>
-          <span class="links_name">Categorias</span>
+          <span class="links_name">Categorìas</span>
         </a>
       </li>
       <li>
@@ -74,7 +74,7 @@ $users = $this->data;
           <div class="cell">Nombre</div>
           <div class="cell">Correo Electronico</div>
           <div class="cell"># Celular</div>
-          <div class="cell">Direccion</div>
+          <div class="cell">Direcciòn</div>
           <div class="cell">Actualizar</div>
           <div class="cell">Eliminar</div>
         </div>
