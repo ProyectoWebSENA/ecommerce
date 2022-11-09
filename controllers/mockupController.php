@@ -10,6 +10,6 @@ class MockupController extends Controller
     function render()
     {
         error_log("LOGIN::RENDER -> Render incio home");
-        $this->view->render('category/index');
+        $this->view->render('dashboard/categoryForm');
     }
 }
