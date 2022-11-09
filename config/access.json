@@ -16,9 +16,19 @@
       "role": ""
     },
     {
-      "site": "cart",
+      "site": "category",
       "access": "public",
       "role": ""
+    },
+    {
+      "site": "product",
+      "access": "public",
+      "role": ""
+    },
+    {
+      "site": "cart",
+      "access": "private",
+      "role": "user"
     },
     {
       "site": "dashboard",

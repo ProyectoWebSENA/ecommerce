@@ -28,7 +28,7 @@ class CartController extends SessionController
 
   private function validateCartStatus()
   {
-    if ($_SESSION['user']) {
+    if (isset($_SESSION['user'])) {
       $idUser = $_SESSION['user'];
       return  $this->model->validateCartStatus($idUser);
     } else {
@@ -38,7 +38,7 @@ class CartController extends SessionController
 
   private function createUserCart()
   {
-    if ($_SESSION['user']) {
+    if (isset($_SESSION['user'])) {
       $idUser = $_SESSION['user'];
       return  $this->model->createUserCart($idUser);
     } else {
@@ -109,7 +109,7 @@ class CartController extends SessionController
 
   function getCartInformation()
   {
-    if ($_SESSION['user']) {
+    if (isset($_SESSION['user'])) {
       $idUser = $_SESSION['user'];
 
       if ($idUser == '' || empty($idUser)) {

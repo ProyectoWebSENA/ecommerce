@@ -4,7 +4,7 @@ class CartModel extends Model
 {
   private $idCart;
   private $idUser;
-  private $idProd;
+  private $prodCode;
   private $prodQuantity;
   private $totalPrice;
 
@@ -13,7 +13,7 @@ class CartModel extends Model
     parent::__construct();
     $this->idCart = 0;
     $this->idUser = 0;
-    $this->idProd = 0;
+    $this->prodCode = 0;
     $this->prodQuantity = 0;
     $this->totalPrice = 0.0;
   }
@@ -21,8 +21,8 @@ class CartModel extends Model
   public function validateCartStatus($idUser)
   {
     try {
-      $query = $this->prepare("SELECT id_user FROM carrito WHERE id_user = :id_user");
-      $query->execute(['id_user' => $idUser]);
+      $query = $this->prepare("SELECT id_user1 FROM cart WHERE id_user1 = :id_user1");
+      $query->execute(['id_user1' => $idUser]);
       $query->fetch(PDO::FETCH_ASSOC);
       if ($query->rowCount() > 0) {
         return true;
@@ -38,8 +38,8 @@ class CartModel extends Model
   public function createUserCart($idUser)
   {
     try {
-      $query = $this->prepare("INSERT INTO carrito (id_user) VALUES (:id_user)");
-      $query->execute(['id_user' => $idUser]);
+      $query = $this->prepare("INSERT INTO cart (id_user1) VALUES (:id_user1)");
+      $query->execute(['id_user1' => $idUser]);
       return true;
     } catch (PDOException $e) {
       error_log("CARTMODEL::CREATEUSERCART-> " . $e->getMessage());
@@ -47,11 +47,11 @@ class CartModel extends Model
     }
   }
 
-  public function searchProductInCart($idProd)
+  public function searchProductInCart($prodCode)
   {
     try {
-      $query = $this->prepare("SELECT id_prod FROM user_cart WHERE id_prod = :id_prod");
-      $query->execute(['id_prod' => $idProd]);
+      $query = $this->prepare("SELECT prod_code1 FROM user_cart WHERE prod_code1 = :prod_code1");
+      $query->execute(['prod_code1' => $prodCode]);
       $query->fetch(PDO::FETCH_ASSOC);
       if ($query->rowCount() > 0) {
         return true;
@@ -64,14 +64,14 @@ class CartModel extends Model
     }
   }
 
-  public function saveCartDetail($idCart, $idProd, $prodQuantity)
+  public function saveCartDetail($idCart, $prodCode, $prodQuantity)
   {
     try {
-      $query = $this->prepare("INSERT INTO user_cart ( id_cart,id_prod, prod_quantity) 
-                              VALUES (:id_cart,:id_prod, :prod_quantity)");
+      $query = $this->prepare("INSERT INTO user_cart ( id_cart1,prod_code1, prod_quantity) 
+                              VALUES (:id_cart1,:prod_code1, :prod_quantity)");
       $query->execute([
-        'id_cart' => $idCart,
-        'id_prod' => $idProd,
+        'id_cart1' => $idCart,
+        'prod_code1' => $prodCode,
         'prod_quantity' => $prodQuantity
       ]);
       return true;
@@ -84,7 +84,7 @@ class CartModel extends Model
   public function updateTheTotal($idCart, $totalPrice)
   {
     try {
-      $query = $this->prepare("UPDATE carrito SET total_price = :total_price
+      $query = $this->prepare("UPDATE car SET total_price = :total_price
                 WHERE id = :id");
       $query->execute([
         'total_price' => $totalPrice,
@@ -100,16 +100,16 @@ class CartModel extends Model
   public function getCartInformation($idUser)
   {
     try {
-      $query = $this->prepare("SELECT carrito.*,user_cart.id_prod,user_cart.prod_quantity 
-                FROM carrito
+      $query = $this->prepare("SELECT cart.*,user_cart.prod_code1,user_cart.prod_quantity 
+                FROM cart
                 INNER JOIN user_cart
-                ON user_cart.id_cart = carrito.id 
+                ON user_cart.id_cart = cart.id 
                 WHERE id_user = :id_user");
       $query->execute(['id_user' => $idUser]);
       $cart = $query->fetch(PDO::FETCH_ASSOC);
       $this->idCart = $cart['id'];
-      $this->idUser = $cart['id_user'];
-      $this->idProd = $cart['id_prod'];
+      $this->idUser = $cart['id_user1'];
+      $this->prodCode = $cart['prod_code1'];
       $this->prodQuantity = $cart['prod_quantity'];
       $this->totalPrice = $cart['total_price'];
       return $this;
@@ -119,14 +119,14 @@ class CartModel extends Model
     }
   }
 
-  public function deleteProductFromCart($idCart, $idProd)
+  public function deleteProductFromCart($idCart, $prodCode)
   {
     try {
       $query = $this->prepare("DELETE FROM user_cart 
-                WHERE id_cart = :id_cart AND id_prod = :id_prod ");
+                WHERE id_cart1 = :id_cart1 AND prod_code1 = :prod_code1 ");
       $query->execute([
-        'id_cart' => $idCart,
-        ['id_prod' => $idProd]
+        'id_cart1' => $idCart,
+        ['prod_code1' => $prodCode]
       ]);
       return true;
     } catch (PDOException $e) {
@@ -139,8 +139,8 @@ class CartModel extends Model
   {
     try {
       $query = $this->prepare("DELETE FROM user_cart
-                WHERE id_cart = :id_cart");
-      $query->execute(['id_cart' => $idCart]);
+                WHERE id_cart1 = :id_cart1");
+      $query->execute(['id_cart1' => $idCart]);
       return true;
     } catch (PDOException $e) {
       error_log("cartMODEL::DELETECARTINFORMATION ->" . $e->getMessage());
@@ -148,16 +148,16 @@ class CartModel extends Model
     }
   }
 
-  public function updateProductFromCart($idCart, $idProd, $prodQuantity)
+  public function updateProductFromCart($idCart, $prodCode, $prodQuantity)
   {
     try {
       $query = $this->prepare("UPDATE user_cart 
                 SET  prod_quantity = :prod_quantity, 
-                WHERE id_cart = :id_cart AND id_prod = :id_prod");
+                WHERE id_cart1 = :id_cart1 AND prod_code1 = :prod_code1");
       $query->execute([
         'prod_quantity' => $prodQuantity,
-        'id_cart' => $idCart,
-        ['id_prod' => $idProd]
+        'id_cart1' => $idCart,
+        ['prod_code1' => $prodCode]
       ]);
       return true;
     } catch (PDOException $e) {
@@ -176,9 +176,9 @@ class CartModel extends Model
   {
     return $this->idUser;
   }
-  public function getIdProd()
+  public function getprodCode()
   {
-    return $this->idProd;
+    return $this->prodCode;
   }
   public function getProdQuantity()
   {

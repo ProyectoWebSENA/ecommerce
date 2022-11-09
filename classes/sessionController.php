@@ -64,7 +64,7 @@ class SessionController extends Controller
       error_log("SESSIONCONTROLLER::VALIDATESESSION: username: " . $this->user->getName() . " - role: " . $this->user->getRole());
 
       if ($this->isPublic()) {
-        $this->redirectDefaultSiteByRole($role);
+        // $this->redirectDefaultSiteByRole($role);
         error_log("Entra a sitio publico");
       } else {
         if ($this->isAuthorized($role)) {
@@ -99,7 +99,7 @@ class SessionController extends Controller
 
   function getUserSessionData()
   {
-    $id = $this->session->getCurentUser();
+    $id = $this->session->getCurrentUser();
     $this->user = new UserModel();
     $this->user->get($id);
     error_log("SESSIONCONTROLLER::GETUSERSESSIONDATA: " . $this->user->getName());
@@ -159,6 +159,7 @@ class SessionController extends Controller
     error_log("SESSIONCONTROLLER::INITIALIZE: USER: " . $user->getName());
     $this->session->setCurrentUser($user->getId());
     $this->session->setUsername($user->getName());
+    $this->session->setRole($user->getRole());
     $this->authorizeAccess($user->getRole());
   }
 

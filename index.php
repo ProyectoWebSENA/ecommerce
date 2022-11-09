@@ -14,6 +14,8 @@ require_once 'libs/app.php';
 
 require_once 'classes/session.php';
 require_once 'classes/sessionController.php';
+require_once 'classes/messagesManager.php';
+require_once 'classes/errors.php';
 
 require_once 'config/config.php';
 
