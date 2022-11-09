@@ -99,7 +99,7 @@ class SessionController extends Controller
 
   function getUserSessionData()
   {
-    $id = $this->session->getCurentUser();
+    $id = $this->session->getCurrentUser();
     $this->user = new UserModel();
     $this->user->get($id);
     error_log("SESSIONCONTROLLER::GETUSERSESSIONDATA: " . $this->user->getName());

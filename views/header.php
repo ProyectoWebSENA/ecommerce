@@ -1,3 +1,7 @@
+<?php
+$sessiom = new Session();
+?>
+
 <header class="header">
   <nav class="navbar">
     <div class="trademark-container">
@@ -60,7 +64,7 @@
               ';
           } else {
             echo '
-              <a href="">Iniciar Sesión</a>
+              <a href="/login">Iniciar Sesión</a>
               ';
           }
           ?>
@@ -87,7 +91,7 @@
               ';
       } else {
         echo '
-              <a href="">Iniciar Sesión</a>
+                <a href="/ecommerce/login">Iniciar Sesión</a>
               ';
       }
       ?>
