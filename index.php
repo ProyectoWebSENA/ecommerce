@@ -20,5 +20,6 @@ require_once 'classes/errors.php';
 require_once 'config/config.php';
 
 include_once 'models/userModel.php';
+include_once 'models/productModel.php';
 
 $app = new App();

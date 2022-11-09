@@ -19,18 +19,18 @@
         <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
         <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
       </svg>
-      <a />
-      <div class="pnf-desc-container">
-        <div class="pnf-img-container">
-          <img src="<?php echo constant('URL') ?>public/images/404.svg" alt="404 illustration" class="pnf-img" />
-        </div>
-        <div class="pnf-text-container">
-          <p class="pnf-text">
-            ¡Oops! Parece que la pagina que estás buscando no existe. Regresa a
-            la pagina principal haciendo <a href="<?php echo constant('URL') ?>" class="pnf-home-link">click aquí</a>.
-          </p>
-        </div>
+    </a>
+    <div class="pnf-desc-container">
+      <div class="pnf-img-container">
+        <img src="<?php echo constant('URL') ?>public/images/404.svg" alt="404 illustration" class="pnf-img" />
       </div>
+      <div class="pnf-text-container">
+        <p class="pnf-text">
+          ¡Oops! Parece que la pagina que estás buscando no existe. Regresa a
+          la pagina principal haciendo <a href="<?php echo constant('URL') ?>" class="pnf-home-link">click aquí</a>.
+        </p>
+      </div>
+    </div>
   </main>
 </body>
 

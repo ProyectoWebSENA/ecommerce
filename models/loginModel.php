@@ -12,7 +12,7 @@ class LoginModel extends Model
     error_log("LOGINMODEL:LOGIN inicio");
 
     try {
-      $query = $this->prepare("SELECT * FROM usuarios WHERE email = :email");
+      $query = $this->prepare("SELECT * FROM users WHERE email = :email");
       $query->execute(['email' => $email]);
 
       if ($query->rowCount() == 1) {

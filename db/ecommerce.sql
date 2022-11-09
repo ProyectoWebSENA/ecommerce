@@ -20,6 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ecommerce`
 --
+DROP DATABASE IF EXISTS ecommerce;
 CREATE DATABASE ecommerce;
 USE ecommerce;
 -- --------------------------------------------------------

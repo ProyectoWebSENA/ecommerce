@@ -33,7 +33,7 @@
     {
       "site": "dashboard",
       "access": "public",
-      "role": "admin"
+      "role": ""
     }
   ],
 

@@ -32,9 +32,27 @@ class Controller
     return true;
   }
 
+  function existsGET($params)
+  {
+    foreach ($params as $param) {
+      if (!isset($_GET[$param])) {
+        error_log("CONTROLLER::EXISTSGET -> no existe el parametro " . $param);
+        return false;
+      }
+    }
+
+    error_log("CONTROLLER:EXISTGET: existen todos los parametros");
+    return true;
+  }
+
   function getPost($name)
   {
     return $_POST[$name];
+  }
+
+  function getGet($name)
+  {
+    return $_GET[$name];
   }
 
   function redirect($url, $messages = [])

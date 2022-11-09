@@ -43,6 +43,17 @@ class UserModel extends Model implements IModel
     }
   }
 
+  public function getAllUsers()
+  {
+    try {
+      $query = $this->query('SELECT * FROM users');
+      $items = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $items;
+    } catch (PDOException $e) {
+      echo $e;
+    }
+  }
+
   public function get($id)
   {
     try {
