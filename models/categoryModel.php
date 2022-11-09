@@ -45,6 +45,20 @@ class CategoryModel extends Model implements IModel
             return false;
         }
     }
+    public function getAll()
+    {
+        try {
+            $query = $this->prepare("SELECT * 
+                FROM categories");
+            $query->execute();
+            $items = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $items;
+        } catch (PDOException $e) {
+            error_log("CATEGORYMODEL::GETALL -> " . $e->getMessage());
+            return false;
+        }
+    }
+
 
     public function delete($catCode)
     {

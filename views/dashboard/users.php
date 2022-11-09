@@ -1,21 +1,21 @@
 <div class="table-container">
     <div class="table">
         <div class="row header">
-            <div class="cell">Codigo producto</div>
+            <div class="cell">ID</div>
             <div class="cell">Nombre</div>
-            <div class="cell">Precio</div>
-            <div class="cell">Descripcion</div>
-            <div class="cell">URL imagen</div>
+            <div class="cell">Correo Electronico</div>
+            <div class="cell"># Celular</div>
+            <div class="cell">Direccion</div>
             <div class="cell">Actualizar</div>
             <div class="cell">Eliminar</div>
         </div>
         <?php foreach ($dataForTheTable as $data) : ?>
             <div class="row">
-                <div class="cell" data-title="Codigo producto"><?php echo $data['prod_code']; ?></div>
+                <div class="cell" data-title="Id"><?php echo $data['id']; ?></div>
                 <div class="cell" data-title="Nombre"><?php echo $data['name']; ?></div>
-                <div class="cell" data-title="Precio"><?php echo $data['price']; ?></div>
-                <div class="cell" data-title="Descripcion"><?php echo $data['description']; ?></div>
-                <div class="cell" data-title="URL imagen"><?php echo $data['prod_pic_url']; ?></div>
+                <div class="cell" data-title="Correo Electronico"><?php echo $data['email']; ?></div>
+                <div class="cell" data-title="# Celular"><?php echo $data['cellphone']; ?></div>
+                <div class="cell" data-title="Direccion"><?php echo $data['address']; ?></div>
                 <div class="cell" data-title="Actualizar">
                     <a href="" class="table-btn">Actualizar</a>
                 </div>

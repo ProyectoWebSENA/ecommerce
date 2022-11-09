@@ -42,7 +42,7 @@ class SignupController extends SessionController
         }
 
         if ($user->save()) {
-          $this->redirect('/login');
+          $this->redirect('login');
         } else {
           $this->redirect('signup', ['error' => Errors::ERROR_AUTH_SIGNUP_NEWUSER_SAVE]);
         }

@@ -1,21 +1,15 @@
 <div class="table-container">
     <div class="table">
         <div class="row header">
-            <div class="cell">Codigo producto</div>
+            <div class="cell">Codigo categoria</div>
             <div class="cell">Nombre</div>
-            <div class="cell">Precio</div>
-            <div class="cell">Descripcion</div>
-            <div class="cell">URL imagen</div>
             <div class="cell">Actualizar</div>
             <div class="cell">Eliminar</div>
         </div>
         <?php foreach ($dataForTheTable as $data) : ?>
             <div class="row">
-                <div class="cell" data-title="Codigo producto"><?php echo $data['prod_code']; ?></div>
+                <div class="cell" data-title="Codigo categoria"><?php echo $data['cat_code']; ?></div>
                 <div class="cell" data-title="Nombre"><?php echo $data['name']; ?></div>
-                <div class="cell" data-title="Precio"><?php echo $data['price']; ?></div>
-                <div class="cell" data-title="Descripcion"><?php echo $data['description']; ?></div>
-                <div class="cell" data-title="URL imagen"><?php echo $data['prod_pic_url']; ?></div>
                 <div class="cell" data-title="Actualizar">
                     <a href="" class="table-btn">Actualizar</a>
                 </div>

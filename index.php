@@ -21,5 +21,6 @@ require_once 'config/config.php';
 
 include_once 'models/userModel.php';
 include_once 'models/productModel.php';
+include_once 'models/categoryModel.php';
 
 $app = new App();

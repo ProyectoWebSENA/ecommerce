@@ -9,17 +9,24 @@ class DashboardController extends SessionController
 
   public function render()
   {
-    $data = [];
-    $user = new UserModel();
-    $data = $user->getAllUsers();
-    $this->view->render('dashboard/index', $data);
+    $this->view->render('dashboard/template');
   }
 
-  public function products()
-  {
-    $data = [];
-    $user = new ProductModel();
-    $data = $user->getAllProducts();
-    $this->view->render('dashboard/products', $data);
+  public function searchAllUser(){
+    $user = new UserModel();
+    $data = $user->getAllUsers();
+    $this->view->render('dashboard/template',$data);
+  }
+
+  public function searchAllCategories(){
+    $category = new CategoryModel();
+    $data = $category->getAll();
+    $this->view->render('dashboard/template',$data);
+  }
+
+  public function searchAllProducts(){
+    $product = new ProductModel();
+    $data = $product->getAll();
+    $this->view->render('dashboard/template',$data);
   }
 }

@@ -64,13 +64,8 @@ class ProductModel extends Model implements IModel
     try {
       $query = $this->prepare("SELECT * FROM products");
       $query->execute();
-      $product = $query->fetch(PDO::FETCH_ASSOC);
-      $this->prodCode = $product['prod_code'];
-      $this->name = $product['name'];
-      $this->price = $product['price'];
-      $this->description = $product['description'];
-      $this->proPicUrl = $product['prod_pic_url'];
-      return $this;
+      $items = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $items;
     } catch (PDOException $e) {
       error_log("PRODUCTMODEL::GETALL -> " . $e->getMessage());
       return false;
