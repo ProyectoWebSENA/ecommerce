@@ -1,5 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+:root {
+  /* Colores */
+  --black-color: rgb(0, 0, 0);
+  --punto-tres-black-color: rgba(0, 0, 0, 0.3);
+  --punto-cinco-black-color: rgba(0, 0, 0, 0.5);
+  --punto-ocho-black-color: rgba(0, 0, 0, 0.8);
+  --orange-color: rgb(255, 165, 0);
+  --dark-orange-color: rgb(255, 136, 0);
+  --punto-cinco-grey-color: rgba(240, 248, 255, 0.5);
+  --grey-color: rgb(219, 219, 219);
+  --dark-grey-color: rgb(210, 210, 210);
+  --white-color: rgb(255, 255, 255);
+  --offwhite-color: rgb(232, 243, 253);
+  --offwhite-color-lighter: rgb(251, 253, 255);
+
+  /* Tamaños de fuente */
+  --xs-font-size: 1.3rem;
+  --sm-font-size: 1.5rem;
+  --md-font-size: 1.8rem;
+  --lg-font-size: 2rem;
+  --xl-font-size: 2.5rem;
+  --2xl-font-size: 3rem;
+  --3xl-font-size: 3.5rem;
+  --4xl-font-size: 4rem;
+  --5xl-font-size: 4.5rem;
+
+  /* Tamaños de borde */
+  --regular-border: 1px;
+  --big-border: 2px;
+
+  /* Border radius */
+  --small-border-radius: 5px;
+  --regular-border-radius: 10px;
+
+  /* Tamaños de altos estaticos */
+  --header-height: 50px;
+  --xs-height: 30px;
+  --sm-height: 35px;
+  --md-height: 40px;
+  --lg-height: 50px;
+
+  /* Tiempos de transición */
+  --transition-time: 300ms;
+}
+
 * {
   margin: 0;
   padding: 0;

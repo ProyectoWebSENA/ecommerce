@@ -5,14 +5,14 @@ $sessiom = new Session();
 <header class="header">
   <nav class="navbar">
     <div class="trademark-container">
-      <a href="" class="trademark">
+      <a href="<?php echo constant('URL') ?>" class="trademark">
         <img src="<?php echo constant('URL') ?>public/images/logo.jpg" alt="">
       </a>
     </div>
     <div class="navbar-actions-container" id="nav-actions-container">
       <div class="search-container">
-        <form action="#" method="get" class="search-form">
-          <input type="text" name="" id="" placeholder="Busca productos aquí">
+        <form action="<?php echo constant('URL') ?>search" method="POST" class="search-form">
+          <input type="text" name="search" placeholder="Busca productos aquí">
           <button type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -23,7 +23,7 @@ $sessiom = new Session();
         </form>
       </div>
       <div class="links-container">
-        <div href="" class="profile-icon" id="profile-action">
+        <div class="profile-icon" id="profile-action">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <circle cx="12" cy="7" r="4" />

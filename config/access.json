@@ -3,37 +3,44 @@
     {
       "site": "",
       "access": "public",
-      "role": ""
+      "role": "",
+      "log-status": "yes"
     },
     {
       "site": "login",
       "access": "public",
-      "role": ""
+      "role": "",
+      "log-status": "no"
     },
     {
       "site": "signup",
       "access": "public",
-      "role": ""
+      "role": "",
+      "log-status": "no"
     },
     {
       "site": "category",
       "access": "public",
-      "role": ""
+      "role": "",
+      "log-status": "yes"
     },
     {
       "site": "product",
       "access": "public",
-      "role": ""
+      "role": "",
+      "log-status": "yes"
     },
     {
       "site": "cart",
       "access": "private",
-      "role": "user"
+      "role": "user",
+      "log-status": "yes"
     },
     {
       "site": "dashboard",
-      "access": "public",
-      "role": ""
+      "access": "private",
+      "role": "admin",
+      "log-status": "yes"
     }
   ],
 

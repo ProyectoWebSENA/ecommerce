@@ -9,6 +9,15 @@ class ProductController extends SessionController
 
   function render()
   {
-    $this->view->render('login/index');
+    $data = [];
+
+    if ($this->existsGET(['id'])) {
+      $id = $this->getGet('id');
+    } else {
+      $this->redirect('', ['error' => "Errors::ERROR_AUTH_DATABASE"]);
+    }
+    $data['product'] = $this->model->get($id);
+    $data['reviews'] = $this->model->getProductReviews($id);
+    $this->view->render('product/index', $data);
   }
 }

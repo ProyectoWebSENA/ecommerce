@@ -45,12 +45,7 @@ class ProductModel extends Model implements IModel
                 WHERE prod_code = :prod_code");
       $query->execute(['prod_code' => $prodCode]);
       $product = $query->fetch(PDO::FETCH_ASSOC);
-      $this->prodCode = $product['prod_code'];
-      $this->name = $product['name'];
-      $this->price = $product['price'];
-      $this->description = $product['description'];
-      $this->prodPicUrl = $product['prod_pic_url'];
-      return $this;
+      return $product;
     } catch (PDOException $e) {
       error_log("PRODUCTMODEL::GET -> " . $e->getMessage());
       return false;
@@ -151,6 +146,19 @@ class ProductModel extends Model implements IModel
     }
   }
 
+  public function getProductReviews($prod_code)
+  {
+    try {
+      $query = $this->prepare("SELECT * FROM reviews WHERE prod_code1 = :prod_code");
+      $query->execute(['prod_code' => $prod_code]);
+      $reviews = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $reviews;
+    } catch (PDOException $e) {
+      error_log("PRODUCTMODEL::GETPRODUCTREVIEWS -> " . $e->getMessage());
+      return false;
+    }
+  }
+
   //Metodos Setters
   public function setProdCode($prodCode)
   {
@@ -193,5 +201,4 @@ class ProductModel extends Model implements IModel
   {
     return $this->prodPicUrl;
   }
-  
 }

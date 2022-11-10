@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2022 a las 02:17:31
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 10, 2022 at 07:02 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,16 +18,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ecommerce`
+-- Database: `ecommerce`
 --
-DROP DATABASE IF EXISTS ecommerce;
-CREATE DATABASE ecommerce;
-USE ecommerce;
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cart`
+-- Table structure for table `cart`
 --
+
+DROP DATABASE IF EXISTS ecommerce;
+CREATE DATABASE ecommerce;
+USE ecommerce;
 
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
@@ -38,7 +40,7 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -46,10 +48,19 @@ CREATE TABLE `categories` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_code`, `name`) VALUES
+(1, 'Test'),
+(12, 'Lacteos'),
+(13, 'Ropa');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cat_prod`
+-- Table structure for table `cat_prod`
 --
 
 CREATE TABLE `cat_prod` (
@@ -58,10 +69,18 @@ CREATE TABLE `cat_prod` (
   `prod_code1` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cat_prod`
+--
+
+INSERT INTO `cat_prod` (`id`, `cat_code1`, `prod_code1`) VALUES
+(1, 12, 12),
+(2, 13, 13);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -69,13 +88,22 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `price` float NOT NULL,
   `description` mediumtext NOT NULL,
+  `stock` int(11) NOT NULL,
   `prod_pic_url` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`prod_code`, `name`, `price`, `description`, `stock`, `prod_pic_url`) VALUES
+(12, 'Leche', 3000, 'Test', 10, 'gorra4.jpg'),
+(13, 'Gorra', 60000, 'Test', 3, 'gorra4.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reviews`
+-- Table structure for table `reviews`
 --
 
 CREATE TABLE `reviews` (
@@ -86,10 +114,19 @@ CREATE TABLE `reviews` (
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `id_user1`, `prod_code1`, `stars`, `comment`) VALUES
+(1, 1, 12, 3, 'Test'),
+(2, 1, 12, 1, 'Test'),
+(3, 1, 12, 5, 'test');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -102,10 +139,17 @@ CREATE TABLE `users` (
   `role` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `cellphone`, `address`, `password`, `role`) VALUES
+(1, 'Juan', 'jjrojoa@gmail.com', 1, 'Direccion', '$argon2i$v=19$m=65536,t=4,p=1$TnhtV2VNMGdRdFZGemdzeg$zjgVHoioqPCuhCL29Qk3OLIVubUiF0By9qGIDoRGAQc', 'user');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_cart`
+-- Table structure for table `user_cart`
 --
 
 CREATE TABLE `user_cart` (
@@ -116,24 +160,24 @@ CREATE TABLE `user_cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user1`);
 
 --
--- Indices de la tabla `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_code`);
 
 --
--- Indices de la tabla `cat_prod`
+-- Indexes for table `cat_prod`
 --
 ALTER TABLE `cat_prod`
   ADD PRIMARY KEY (`id`),
@@ -141,13 +185,13 @@ ALTER TABLE `cat_prod`
   ADD KEY `prod_code1` (`prod_code1`);
 
 --
--- Indices de la tabla `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`prod_code`);
 
 --
--- Indices de la tabla `reviews`
+-- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`),
@@ -155,13 +199,13 @@ ALTER TABLE `reviews`
   ADD KEY `prod_code1` (`prod_code1`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user_cart`
+-- Indexes for table `user_cart`
 --
 ALTER TABLE `user_cart`
   ADD PRIMARY KEY (`id`),
@@ -169,65 +213,65 @@ ALTER TABLE `user_cart`
   ADD KEY `prod_code1` (`prod_code1`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `cart`
+-- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cat_prod`
+-- AUTO_INCREMENT for table `cat_prod`
 --
 ALTER TABLE `cat_prod`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `reviews`
+-- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `user_cart`
+-- AUTO_INCREMENT for table `user_cart`
 --
 ALTER TABLE `user_cart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `cart`
+-- Constraints for table `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `cat_prod`
+-- Constraints for table `cat_prod`
 --
 ALTER TABLE `cat_prod`
   ADD CONSTRAINT `cat_prod_ibfk_1` FOREIGN KEY (`cat_code1`) REFERENCES `categories` (`cat_code`),
   ADD CONSTRAINT `cat_prod_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
 
 --
--- Filtros para la tabla `reviews`
+-- Constraints for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
 
 --
--- Filtros para la tabla `user_cart`
+-- Constraints for table `user_cart`
 --
 ALTER TABLE `user_cart`
   ADD CONSTRAINT `user_cart_ibfk_1` FOREIGN KEY (`id_cart1`) REFERENCES `cart` (`id`),

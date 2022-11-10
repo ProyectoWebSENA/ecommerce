@@ -65,6 +65,9 @@ class SessionController extends Controller
 
       if ($this->isPublic()) {
         // $this->redirectDefaultSiteByRole($role);
+        if (!$this->isAccesibleLoggedIn()) {
+          $this->redirectDefaultSiteByRole($role);
+        }
         error_log("Entra a sitio publico");
       } else {
         if ($this->isAuthorized($role)) {
@@ -120,14 +123,26 @@ class SessionController extends Controller
     return false;
   }
 
+  private function isAccesibleLoggedIn()
+  {
+    $currentURL = $this->getCurrentPage();
+    $currentURL = preg_replace("/\?.*/", "", $currentURL);
+    for ($i = 0; $i < sizeof($this->sites); $i++) {
+      if ($currentURL === $this->sites[$i]['site'] && $this->sites[$i]['log-status'] === 'no') {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   private function redirectDefaultSiteByRole($role)
   {
     $url = '';
-    for ($i = 0; $i < sizeof($this->sites); $i++) {
-      if ($this->sites[$i]['role'] === $role) {
-        $url = '/ecommerce/' . $this->sites[$i]['site'];
-        break;
-      }
+    if ($role === 'user') {
+      $url = '/ecommerce/' . $this->defaultSites['user'];
+    } else  if ($role === 'admin') {
+      $url = '/ecommerce/' . $this->defaultSites['admin'];
     }
     header('Location: ' . $url);
   }

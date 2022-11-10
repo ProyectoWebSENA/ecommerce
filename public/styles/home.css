@@ -1,102 +1,115 @@
-.page-title{
-    height: 50vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-    padding: 0 1rem;
-    color: white;
-    background-image: url("http://localhost:80/ecommerce/public/images/backgroundHome.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.page-title {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--2xl-font-size);
+  text-align: center;
+  padding: 0 1rem;
+  background-image: url("http://localhost:80/ecommerce/public/images/backgroundHome.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white-color);
 }
 
-.section{
-    padding: 2rem;
+.section {
+  padding: 2rem;
 }
 
-.cards-container{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 4rem;
-    padding: 1rem;
-    margin-top: 2rem;
-    overflow-x: auto;
+.cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  overflow-x: auto;
 }
 
-.cards-container-title{
-    margin: 1rem;
-    font-size: 3rem;
-    width: 100%;
+.cards-container-title {
+  width: 100%;
+  margin: 1rem;
+  font-size: var(--xl-font-size);
 }
 
-.card{
-    width: 250px;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+.card {
+  min-width: 250px;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0px 0px 5px var(--punto-tres-black-color);
+  border-radius: var(--regular-border-radius);
 }
 
-.card-img-container{
-    width: 100%;
-    height: 250px;
+.card-img-container {
+  width: 100%;
+  height: 150px;
+  padding: 1rem 0.5rem;
+  border-radius: var(--small-border-radius);
+  box-shadow: 0 1px 1px 0 var(--punto-tres-black-color);
 }
 
-.card-img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    border-radius: 10px;
+.card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--small-border-radius);
 }
 
-.card-desc-container{
-    width: 100%;
-    height: max-content;
-    max-height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    overflow-y: auto;
+.card-desc-container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.card-desc-container h3{
-    font-size: 1.8rem;
-    text-transform: capitalize;
+.card-desc-container h3 {
+  max-height: 45px;
+  font-size: var(--md-font-size);
+  text-transform: capitalize;
+  overflow: hidden;
 }
 
-.card-desc-container p{
-    font-size: 1.5rem;
-    text-align: center;
+.card-desc-container p {
+  max-height: 20px;
+  font-size: var(--sm-font-size);
+  text-align: center;
 }
 
-.card-desc-container a{
-    display: block;
-    min-width: 110x;
-    width: 40%;
-    max-width: 150px;
-    height: 35px;
-    border-radius: 5px;
-    background-color: orange;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: black;
-    line-height: 35px;
-    text-align: center;
-    text-transform: capitalize;
+.card-desc-container a {
+  display: block;
+  min-width: 110px;
+  width: 40%;
+  max-width: 150px;
+  height: var(--sm-height);
+  font-size: var(--sm-font-size);
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  line-height: var(--sm-height);
+  background-color: var(--orange-color);
+  color: var(--black-color);
+  border-radius: var(--small-border-radius);
 }
 
-.card-desc-container a:hover{
-    background-color: rgb(255, 174, 0);
+.card-desc-container a:hover {
+  background-color: var(--dark-orange-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .page-title {
+    font-size: var(--3xl-font-size);
+  }
 }
