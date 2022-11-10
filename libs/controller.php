@@ -28,7 +28,6 @@ class Controller
       }
     }
 
-    error_log("CONTROLLER:EXISTPOST: existen todos los parametros");
     return true;
   }
 
@@ -41,7 +40,6 @@ class Controller
       }
     }
 
-    error_log("CONTROLLER:EXISTGET: existen todos los parametros");
     return true;
   }
 

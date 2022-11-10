@@ -249,6 +249,16 @@
   background-color: var(--dark-orange-color);
 }
 
+.stock-notice-container {
+  width: 100%;
+  height: max-content;
+}
+
+.stock-notice-container p {
+  font-size: var(--lg-font-size);
+  font-weight: 500;
+}
+
 .reviews-section {
   width: 100%;
   height: max-content;

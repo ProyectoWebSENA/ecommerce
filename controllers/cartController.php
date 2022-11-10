@@ -5,24 +5,35 @@ class CartController extends SessionController
   function __construct()
   {
     parent::__construct();
+    $sessiom = new Session();
   }
 
   function render()
   {
-    $this->view->render('cart/index');
+    $data = [];
+    $data['products'] = $this->getCartInformation();
+    $data['totalPrice'] = $this->getTotalPrice();
+    $this->view->render('cart/index', $data);
   }
 
-  function addProductToCart()
+  function add()
   {
     if (!$this->validateCartStatus()) {
       $this->createUserCart();
+      $this->saveCartDetail();
     } else {
       if ($this->searchProductInCart()) {
         $this->updateProductFromCart();
       } else {
         $this->saveCartDetail();
       }
-      $this->updateTheTotal();
+    }
+  }
+
+  function delete()
+  {
+    if ($this->validateCartStatus()) {
+      $this->deleteProductFromCart();
     }
   }
 
@@ -32,78 +43,77 @@ class CartController extends SessionController
       $idUser = $_SESSION['user'];
       return  $this->model->validateCartStatus($idUser);
     } else {
-      $this->redirect('cart', ['error' => "No se ha iniciado sesion"]);
+      $this->redirect('login', ['error' => "No se ha iniciado sesion"]);
     }
   }
 
   private function createUserCart()
   {
-    if (isset($_SESSION['user'])) {
-      $idUser = $_SESSION['user'];
-      return  $this->model->createUserCart($idUser);
-    } else {
-      $this->redirect('cart', ['error' => "No se ha iniciado sesion"]);
-    }
+    $idUser = $_SESSION['user'];
+    return  $this->model->createUserCart($idUser);
   }
 
   private function searchProductInCart()
   {
-    if ($this->existsPOST(['id_prod'])) {
-      $idProd = $this->getPost('id_prod');
+    if ($this->existsPOST(['prod_code'])) {
+      $idProd = $this->getPost('prod_code');
 
       if ($idProd == '' || empty($idProd)) {
         error_log("CARTCONTROLLER::SEARCHPRODUCTINCART empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
+        $this->redirect('product?id=' . $idProd, ['error' => 'Campos vacios']);
         return false;
       }
-      return  $this->model->searchProductInCart($idProd);
+      return $this->model->searchProductInCart($idProd);
     } else {
-      $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('', ['error' => "Error los campos obligatorios no fueron completados "]);
+    }
+  }
+
+  function updateProductFromCart()
+  {
+    if ($this->existsPOST(['prod_code', 'prod_quantity'])) {
+      $idProd = $this->getPost('prod_code');
+      $prodQuantity = $this->getPost('prod_quantity');
+
+      if ($idProd == '' || empty($idProd) || $prodQuantity == '' || empty($prodQuantity)) {
+        error_log("CARTCONTROLLER::UPDATEPRODUCTFROMCART empty");
+        $this->redirect('product?id=' . $idProd, ['error' => 'Campos vacios']);
+        return false;
+      }
+
+      if ($this->model->updateProductFromCart($idProd, $prodQuantity)) {
+        $product = new ProductModel();
+        $product->updateProductStock($idProd, $prodQuantity, true);
+        $this->redirect('product?id=' . $idProd, ['success' => "Cantidad modificada"]);
+      } else {
+        $this->redirect('product?id=' . $idProd, ['error' => "Error inesperado"]);
+      }
+    } else {
+      $this->redirect('', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 
   private function saveCartDetail()
   {
-    if ($this->existsPOST(['id_cart', 'id_prod', 'prod_quantity'])) {
-      $idCart = $this->getPost('id_cart');
-      $idProd = $this->getPost('id_prod');
+    if ($this->existsPOST(['prod_code', 'prod_quantity'])) {
+      $idProd = $this->getPost('prod_code');
       $prodQuantity = $this->getPost('prod_quantity');
 
-      if ($idCart == '' || empty($idCart) || $idProd == '' || empty($idProd) || $prodQuantity == '' || empty($prodQuantity)) {
+      if ($idProd == '' || empty($idProd) || $prodQuantity == '' || empty($prodQuantity)) {
         error_log("CARTCONTROLLER::SAVECARTDETAIL empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
+        $this->redirect('product?id=' . $idProd, ['error' => 'Campos vacios']);
         return false;
       }
 
-      if ($this->model->saveCartDetail($idProd)) {
-        $this->redirect('', ['success' => "Producto agregado"]);
+      if ($this->model->saveCartDetail($idProd, $prodQuantity)) {
+        $product = new ProductModel();
+        $product->updateProductStock($idProd, $prodQuantity, true);
+        $this->redirect('product?id=' . $idProd, ['success' => "Producto agregado"]);
       } else {
-        $this->redirect('cart', ['error' => "Error inesperado"]);
+        $this->redirect('product?id=' . $idProd, ['error' => "Error inesperado"]);
       }
     } else {
-      $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
-    }
-  }
-
-  private function updateTheTotal()
-  {
-    if ($this->existsPOST(['id_cart', 'total_price'])) {
-      $idCart = $this->getPost('id_cart');
-      $totalPrice = $this->getPost('total_price');
-
-      if ($idCart == '' || empty($idCart) || $totalPrice == '' || empty($totalPrice)) {
-        error_log("CARTCONTROLLER::UPDATETHETOTAL empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
-        return false;
-      }
-
-      if ($this->model->updateTheTotal($idCart, $totalPrice)) {
-        $this->redirect('', ['success' => "Total actualizado"]);
-      } else {
-        $this->redirect('cart', ['error' => "Error inesperado"]);
-      }
-    } else {
-      $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 
@@ -114,16 +124,10 @@ class CartController extends SessionController
 
       if ($idUser == '' || empty($idUser)) {
         error_log("CARTCONTROLLER::GETCARTINFORMATION empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
+        $this->redirect('', ['error' => 'Campos vacios']);
         return false;
       }
-
-      if ($this->model->getCartInformation($idUser)) {
-        $this->redirect('', ['success' => "Carrito encontrado exitosamente"]);
-        return $this->model;
-      } else {
-        $this->redirect('cart', ['error' => "Error inesperado"]);
-      }
+      return $this->model->getCartInformation($idUser);
     } else {
       $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
@@ -131,9 +135,9 @@ class CartController extends SessionController
 
   function deleteProductFromCart()
   {
-    if ($this->existsPOST(['id_cart', 'id_prod'])) {
-      $idCart = $this->getPost('id_cart');
-      $idProd = $this->getPost('id_prod');
+    if ($this->existsGET(['id_cart', 'id_prod'])) {
+      $idCart = $this->getGet('id_cart');
+      $idProd = $this->getGet('id_prod');
 
       if ($idCart == '' || empty($idCart) || $idProd == '' || empty($idProd)) {
         error_log("CARTCONTROLLER::DELETEPRODUCTFROMCART empty");
@@ -141,11 +145,10 @@ class CartController extends SessionController
         return false;
       }
 
-      if ($this->model->deleteProductFromCart($idCart, $idProd)) {
-        $this->redirect('', ['success' => "Producto eliminado exitosamente"]);
-      } else {
-        $this->redirect('cart', ['error' => "Error inesperado"]);
-      }
+      $quantity = $this->model->deleteProductFromCart($idCart, $idProd);
+      $product = new ProductModel();
+      $product->updateProductStock($idProd, $quantity, false);
+      $this->redirect('cart', ['success' => "Producto eliminado"]);
     } else {
       $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
@@ -172,26 +175,8 @@ class CartController extends SessionController
     }
   }
 
-  function updateProductFromCart()
+  function getTotalPrice()
   {
-    if ($this->existsPOST(['id_cart', 'id_prod', 'prod_quantity'])) {
-      $idCart = $this->getPost('id_cart');
-      $idProd = $this->getPost('id_prod');
-      $prodQuantity = $this->getPost('prod_quantity');
-
-      if ($idCart == '' || empty($idCart) || $idProd == '' || empty($idProd) || $prodQuantity == '' || empty($prodQuantity)) {
-        error_log("CARTCONTROLLER::UPDATEPRODUCTFROMCART empty");
-        $this->redirect('cart', ['error' => 'Campos vacios']);
-        return false;
-      }
-
-      if ($this->model->updateProductFromCart($idCart, $idProd, $prodQuantity)) {
-        $this->redirect('', ['success' => "Cantidad modificada"]);
-      } else {
-        $this->redirect('cart', ['error' => "Error inesperado"]);
-      }
-    } else {
-      $this->redirect('cart', ['error' => "Error los campos obligatorios no fueron completados "]);
-    }
+    return $this->model->getTotalPrice($_SESSION['user']);
   }
 }

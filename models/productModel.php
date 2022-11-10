@@ -159,6 +159,30 @@ class ProductModel extends Model implements IModel
     }
   }
 
+  public function updateProductStock($prod_code, $quantity, $operation)
+  {
+    try {
+      $query = $this->prepare("SELECT stock FROM products WHERE prod_code = :prod_code");
+      $query->execute(['prod_code' => $prod_code]);
+      $productQuantity = $query->fetch(PDO::FETCH_ASSOC);
+      if ($operation) {
+        $totalQuantity = $productQuantity['stock'] - $quantity;
+      } else {
+        $totalQuantity = $productQuantity['stock'] + $quantity;
+      }
+      $query = $this->prepare("UPDATE products SET stock = :stock
+                WHERE prod_code = :prod_code");
+      $query->execute([
+        'stock' => $totalQuantity,
+        'prod_code' => $prod_code
+      ]);
+      return true;
+    } catch (PDOException $e) {
+      error_log("CARTMODEL::UPDATETHETOTAL-> " . $e->getMessage());
+      return false;
+    }
+  }
+
   //Metodos Setters
   public function setProdCode($prodCode)
   {

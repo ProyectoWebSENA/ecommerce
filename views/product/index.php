@@ -36,9 +36,9 @@ $data = $this->data;
           <div class="input-container">
             <label for="">Calificación:</label>
             <div class="stepper">
-              <div id="decrement" onclick="stepper(this)" class="q-btn"> - </div>
-              <input type="number" min="1" max="5" step="1" name="rating" value="1" id="my-input" readonly>
-              <div id="increment" onclick="stepper(this)" class="q-btn"> + </div>
+              <div id="decrement" onclick="modalStepper(this)" class="q-btn"> - </div>
+              <input type="number" min="1" max="5" step="1" name="rating" value="1" id="modal-input" readonly>
+              <div id="increment" onclick="modalStepper(this)" class="q-btn"> + </div>
             </div>
           </div>
           <div class="input-container">
@@ -67,20 +67,26 @@ $data = $this->data;
           <p class="product-details-text"><?php echo $data['product']['description'] ?></p>
         </div>
       </div>
-      <div class="cart-form-container">
-        <form action="#" method="POST" class="cart-form">
-          <input type="text" name="prod_code" value="<?php echo $data['product']['prod_code'] ?>" hidden>
-          <input type="text" name="user_id" value="<?php echo $_SESSION['user'] ?>" hidden>
-          <div class="stepper">
-            <div id="decrement" onclick="stepper(this)" class="q-btn"> - </div>
-            <input type="number" min="1" name="quantity" max="<?php echo $data['product']['stock'] ?>" step="1" value="1" id="my-input" readonly>
-            <div id="increment" onclick="stepper(this)" class="q-btn"> + </div>
-          </div>
-          <div class="btn-container">
-            <input type="submit" value="Agregar Al Carrito">
-          </div>
-        </form>
-      </div>
+      <?php if ($data['product']['stock'] !== 0) : ?>
+        <div class="cart-form-container">
+          <form action="<?php echo constant('URL') ?>cart/add" method="POST" class="cart-form">
+            <input type="text" name="prod_code" value="<?php echo $data['product']['prod_code'] ?>" hidden>
+            <div class="stepper">
+              <div id="decrement" onclick="stepper(this)" class="q-btn"> - </div>
+              <input type="number" min="1" name="prod_quantity" max="<?php echo $data['product']['stock'] ?>" step="1" value="1" id="my-input" readonly>
+              <div id="increment" onclick="stepper(this)" class="q-btn"> + </div>
+            </div>
+            <div class="btn-container">
+              <input type="submit" value="Agregar Al Carrito">
+            </div>
+          </form>
+        </div>
+      <?php endif ?>
+      <?php if ($data['product']['stock'] === 0) : ?>
+        <div class="stock-notice-container">
+          <p>Este producto no tiene existencias en este momento.</p>
+        </div>
+      <?php endif ?>
     </div>
   </main>
 

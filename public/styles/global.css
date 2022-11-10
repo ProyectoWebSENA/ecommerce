@@ -14,6 +14,8 @@
   --white-color: rgb(255, 255, 255);
   --offwhite-color: rgb(232, 243, 253);
   --offwhite-color-lighter: rgb(251, 253, 255);
+  --red-color: rgb(255, 37, 37);
+  --red-color-lighter: rgb(255, 80, 80);
 
   /* Tamaños de fuente */
   --xs-font-size: 1.3rem;

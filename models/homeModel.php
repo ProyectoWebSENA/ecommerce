@@ -10,7 +10,11 @@ class HomeModel extends Model
   public function getCategories()
   {
     try {
-      $query = $this->prepare("SELECT * FROM categories");
+      $query = $this->prepare("SELECT categories.*, cat_prod.*
+      FROM categories
+      INNER JOIN cat_prod
+      ON categories.cat_code = cat_prod.cat_code1
+      GROUP BY categories.cat_code;");
       $query->execute();
       $categories = $query->fetchAll(PDO::FETCH_ASSOC);
       return $categories;
@@ -24,9 +28,9 @@ class HomeModel extends Model
   {
     try {
       $query = $this->prepare("SELECT products.prod_code,	products.name,	products.price,     products.prod_pic_url, cat_prod.*
-                FROM products
-                INNER JOIN cat_prod
-                ON products.prod_code = cat_prod.prod_code1;");
+      FROM products
+      INNER JOIN cat_prod
+      ON products.prod_code = cat_prod.prod_code1;");
       $query->execute();
       $products = $query->fetchAll(PDO::FETCH_ASSOC);
       return $products;
