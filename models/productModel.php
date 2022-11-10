@@ -7,6 +7,7 @@ class ProductModel extends Model implements IModel
   private $price;
   private $description;
   private $prodPicUrl;
+  private $stock;
 
   public function __construct()
   {
@@ -16,18 +17,20 @@ class ProductModel extends Model implements IModel
     $this->price = 0.0;
     $this->description = "";
     $this->prodPicUrl = "";
+    $this->stock = 0;
   }
   public function save()
   {
     try {
       $query = $this->prepare("INSERT INTO products 
-                (prod_code,name, price, description, prod_pic_url) 
-                VALUES (:prod_code,:name, :price, :description, :prod_pic_url)");
+                (prod_code,name, price, description,stock, prod_pic_url) 
+                VALUES (:prod_code,:name, :price, :description, :stock, :prod_pic_url)");
       $query->execute([
         'prod_code' => $this->prodCode,
         'name' => $this->name,
         'price' => $this->price,
         'description' => $this->description,
+        'stock' => $this->stock,
         'prod_pic_url' => $this->prodPicUrl
       ]);
       return true;
@@ -203,6 +206,10 @@ class ProductModel extends Model implements IModel
   public function setProdPicUrl($prodPicUrl)
   {
     $this->prodPicUrl = $prodPicUrl;
+  }
+  public function setStock($stock)
+  {
+    $this->stock = $stock;
   }
   //Metodos Getters
   public function getprodCode()

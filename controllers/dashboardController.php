@@ -119,7 +119,6 @@ class DashboardController extends SessionController
       error_log("ADMINPRODUCTCONTROLLER::REGISTERCATEGORY error con los parametros");
       $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
-
   }
 
   public function updateCategory()
@@ -146,7 +145,6 @@ class DashboardController extends SessionController
       error_log("ADMINPRODUCTCONTROLLER::UPDATECATEGORY error con los parametros");
       $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
-
   }
 
   public function deleteCategory()
@@ -180,24 +178,33 @@ class DashboardController extends SessionController
 
   function registerProduct()
   {
-    if ($this->existsPOST(['prod_code', 'name', 'price',  'description', 'prod_pic_url'])) {
+    if ($this->existsPOST(['prod_code', 'name', 'price',  'description', 'stock', 'image'])) {
       $prodCode = $this->getPost('prod_code');
       $name = $this->getPost('name');
       $price = $this->getPost('price');
       $description = $this->getPost('description');
-      $prodPicUrl = $this->getPost('prod_pic_url');
+      $stock = $this->getPost('stock');
 
-      if ($prodCode == '' || empty($prodCode) || $name == '' || empty($name) || $price == '' || empty($price) || $description == '' || empty($description) || $prodPicUrl == '' || empty($prodPicUrl)) {
+      if ($prodCode == '' || empty($prodCode) || $name == '' || empty($name) || $price == '' || empty($price) || $description == '' || empty($description)) {
         error_log("ADMINPRODUCTCONTROLLER::REGISTERPRODUCT empty");
         $this->redirect('product', ['error' => 'Campos vacios']);
         return false;
       }
+
+      $filename = $_FILES["image"]["name"];
+      $tempname = $_FILES["image"]["tmp_name"];
+      $folder = "" . constant('URL') . "public/images/" . $filename;
+
+
       $productModel = new ProductModel();
       $productModel->setProdCode($prodCode);
       $productModel->setName($name);
       $productModel->setPrice($price);
       $productModel->setDescription($description);
-      $productModel->setProdPicUrl($prodPicUrl);
+      $productModel->setStock($stock);
+      $productModel->setProdPicUrl($filename);
+
+      move_uploaded_file($tempname, $folder);
 
       if ($productModel->exists($prodCode)) {
         $this->redirect('product', ['error' => "El producto ya existe"]);

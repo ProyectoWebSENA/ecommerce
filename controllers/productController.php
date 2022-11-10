@@ -14,7 +14,7 @@ class ProductController extends SessionController
     if ($this->existsGET(['id'])) {
       $id = $this->getGet('id');
     } else {
-      $this->redirect('', ['error' => "Errors::ERROR_AUTH_DATABASE"]);
+      $this->redirect('login', ['error' => "Errors::ERROR_AUTH_DATABASE"]);
     }
     $data['product'] = $this->model->get($id);
     $data['reviews'] = $this->model->getProductReviews($id);
