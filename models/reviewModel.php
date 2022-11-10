@@ -70,6 +70,28 @@ class ReviewModel extends Model
     }
   }
 
+  public function checkReview($user_id, $prod_code)
+  {
+    try {
+      $query = $this->prepare("SELECT id 
+                FROM reviews 
+                WHERE prod_code1 = :prod_code1 and id_user1 = :id_user1");
+      $query->execute([
+        'prod_code1' => $prod_code,
+        'id_user1' => $user_id
+      ]);
+      $query->fetch(PDO::FETCH_ASSOC);
+      if ($query->rowCount() > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (PDOException $e) {
+      error_log("REVIEWMODEL::GET -> " . $e->getMessage());
+      return false;
+    }
+  }
+
   public function from($array)
   {
     $this->id = $array['id'];

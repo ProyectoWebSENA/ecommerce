@@ -215,7 +215,8 @@
   border-bottom-right-radius: var(--small-border-radius);
 }
 
-#my-input {
+#my-input,
+#modal-input {
   width: 40px;
   height: var(--xs-height);
   font-size: var(--sm-font-size);
@@ -267,6 +268,27 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
+}
+
+.review-notice {
+  width: 100%;
+  height: max-content;
+  padding: 2rem;
+}
+
+.review-notice p {
+  font-size: var(--lg-font-size);
+  font-weight: 700;
+  text-align: center;
+}
+
+.review-icon-notice-container {
+  width: max-content;
+  height: max-content;
+  margin: 2rem auto 0 auto;
+  padding: 2rem;
+  background-color: var(--offwhite-color-lighter);
+  border-radius: 50%;
 }
 
 .reviews-section > div {
