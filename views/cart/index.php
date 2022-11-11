@@ -40,7 +40,7 @@ $data = $this->data;
         <?php foreach ($data['products'] as $product) : ?>
           <div class="cart-product">
             <div class="cart-product-img-container">
-              <img src="<?php echo constant('URL') ?>public/images/<?php echo $product['prod_pic_url'] ?>" alt="">
+              <img src="<?php echo constant('URL') ?>public/images/products/<?php echo $product['prod_pic_url'] ?>" alt="">
             </div>
             <div class="cart-product-details">
               <p><?php echo $product['name'] ?></p>

@@ -3,7 +3,9 @@
 }
 .sidebar {
   position: fixed;
-  height: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 240px;
   background: var(--dark-orange-color);
   transition: all var(--transition-time);
@@ -70,12 +72,12 @@
   background: #f5f5f5;
   min-height: 100vh;
   height: max-content;
-  width: calc(100% - 240px);
+  width: calc(100% - 60px);
   left: 240px;
   transition: all 0.5s ease;
 }
 .sidebar.active ~ .home-section {
-  width: calc(100% - 60px);
+  width: calc(100% - 240px);
   left: 60px;
 }
 .home-section nav {
@@ -87,8 +89,8 @@
   align-items: center;
   position: fixed;
   top: 0;
-  width: calc(100% - 240px);
-  left: 240px;
+  left: 60px;
+  width: calc(100% - 60px);
   z-index: 100;
   padding: 0 20px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -96,7 +98,7 @@
 }
 .sidebar.active ~ .home-section nav {
   left: 60px;
-  width: calc(100% - 60px);
+  width: calc(100% - 240px);
 }
 .home-section nav .sidebar-button {
   display: flex;
@@ -108,53 +110,19 @@ nav .sidebar-button i {
   font-size: 35px;
   margin-right: 10px;
 }
-.home-section nav .search-box {
-  position: relative;
-  height: 50px;
-  max-width: 550px;
-  width: 100%;
-  margin: 0 20px;
-}
-nav .search-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  background: #f5f6fa;
-  border: 2px solid #efeef1;
-  border-radius: 6px;
-  font-size: 18px;
-  padding: 0 15px;
-}
-nav .search-box .bx-search {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background: #2697ff;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  font-size: 22px;
-  transition: all 0.4 ease;
-}
 
 .table-container {
-  padding-top: 90px;
-  padding: 90px 20px 20px 20px;
+  padding: 100px 20px 20px 20px;
   width: 100%;
-  overflow-x: auto;
 }
-
 .table {
   margin: 0 0 40px 0;
   min-width: 290px;
   width: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   display: table;
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow-x: auto;
 }
 @media screen and (max-width: 768px) {
   .table {
@@ -173,6 +141,7 @@ nav .search-box .bx-search {
   font-weight: 500;
   color: #ffffff;
   background: #0084ff;
+  border-radius: 10px;
 }
 @media screen and (max-width: 768px) {
   .row {
@@ -217,6 +186,7 @@ nav .search-box .bx-search {
   display: block;
   height: 40px;
   width: 100%;
+  max-width: 150px;
   margin-bottom: 0.5rem;
   color: white;
   text-decoration: none;
@@ -226,11 +196,11 @@ nav .search-box .bx-search {
   transition: all 300ms;
 }
 
-.table-btn:first-of-type {
+.btn-orange {
   background-color: rgb(255, 153, 0);
 }
 
-.table-btn:last-of-type {
+.btn-red {
   background-color: red;
 }
 
@@ -241,7 +211,7 @@ nav .search-box .bx-search {
 @media screen and (max-width: 768px) {
   .table-btn {
     display: inline-block;
-    width: 45%;
+    width: 40%;
     margin-right: 0.5rem;
   }
 }

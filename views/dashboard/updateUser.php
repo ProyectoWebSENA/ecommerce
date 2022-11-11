@@ -1,26 +1,25 @@
-<section class="auth-form-section">
-  <form action="<?php echo constant('URL') ?>dashboard/updateUser" method="POST" class="auth-form">
-    <h1 class="auth-form-title">Registrarse</h1>
-    <input type="hidden" name="id" id="id" required value="<?php echo $dataForTheTable->getId(); ?>" />
-
-    <div class="auth-input-container">
-      <label for="">Nombre completo</label>
-      <input type="text" name="name" id="name" required value="<?php echo $dataForTheTable->getName(); ?>" />
+<section class="form-dashboard-container">
+  <h1 class="form-title"> Actualizar Usuario </h1>
+  <form action="<?php echo constant('URL') ?>dashboard/updateUser" method="POST" class="form-dashboard">
+    <input type="text" name="id" id="id" value="<?php echo $data['id'] ?>" hidden>
+    <div class="input-container">
+      <label for="">Nombre</label>
+      <input type="text" name="name" id="name" value="<?php echo $data['name'] ?>">
     </div>
-    <div class="auth-input-container">
+    <div class="input-container">
       <label for="">Correo Electronico</label>
-      <input type="email" name="email" id="email" required value="<?php echo $dataForTheTable->getEmail(); ?>" />
+      <input type="email" name="email" id="email" value="<?php echo $data['email'] ?>">
     </div>
-    <div class="auth-input-container">
-      <label for="">Numero de celular</label>
-      <input type="number" name="cellphone" id="cellphone" required value="<?php echo $dataForTheTable->getCellphone(); ?>" />
+    <div class="input-container">
+      <label for="">Número de Celular</label>
+      <input type="number" name="cellphone" id="cellphone" value="<?php echo $data['cellphone'] ?>">
     </div>
-    <div class="auth-input-container">
+    <div class="input-container">
       <label for="">Dirección</label>
-      <input type="text" name="address" id="address" required value="<?php echo $dataForTheTable->getAddress() ?>" />
+      <input type="text" name="address" id="address" value="<?php echo $data['address'] ?>">
     </div>
-    <div class="auth-submit-container">
-      <input type="submit" value="Modificar" class="submit-btn" />
+    <div class="btn-container">
+      <input type="submit" value="Actualizar Usuario">
     </div>
   </form>
 </section>

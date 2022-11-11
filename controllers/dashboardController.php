@@ -31,7 +31,7 @@ class DashboardController extends SessionController
     $id = $_GET['id'];
     $user = new UserModel();
     $user->delete($id);
-    $this->view->render('dashboard/template');
+    $this->redirect('dashboard/searchAllUser');
   }
 
   public function updateUser()
@@ -50,7 +50,7 @@ class DashboardController extends SessionController
         || $id == '' || empty($id)
       ) {
         error_log("ADMINPRODUCTCONTROLLER::UPDATEUSER empty");
-        $this->redirect('product', ['error' => 'Campos vacios']);
+        $this->redirect('dashboard/searchAllUser', ['error' => 'Campos vacios']);
         return false;
       }
 
@@ -59,19 +59,19 @@ class DashboardController extends SessionController
       $userModel->setEmail($email);
       $userModel->setCellphone($cellphone);
       $userModel->setAddress($address);
-      $userModel->setName($name);
       $userModel->setId($id);
 
       if ($userModel->update()) {
-        $this->redirect('', ['success' => "Usuario modificado correctamente"]);
+        $this->redirect('dashboard/searchAllUser', ['success' => "Usuario modificado correctamente"]);
       } else {
-        $this->redirect('product', ['error' => "Error inesperado"]);
+        $this->redirect('dashboard/searchAllUser', ['error' => "Error inesperado"]);
       }
     } else {
       error_log("ADMINPRODUCTCONTROLLER::UPDATEUSER error con los parametros");
-      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('dashboard/searchAllUser', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
+
   public function searchAllCategories()
   {
     $category = new CategoryModel();
@@ -99,7 +99,7 @@ class DashboardController extends SessionController
 
       if ($catCode == '' || empty($catCode) || $name == '' || empty($name)) {
         error_log("ADMINPRODUCTCONTROLLER::REGISTERCATEGORY empty");
-        $this->redirect('product', ['error' => 'Campos vacios']);
+        $this->redirect('dashboard/searchAllCategories', ['error' => 'Campos vacios']);
         return false;
       }
       $categoryModel = new CategoryModel();
@@ -107,17 +107,17 @@ class DashboardController extends SessionController
       $categoryModel->setName($name);
 
       if ($categoryModel->exists($catCode)) {
-        $this->redirect('product', ['error' => "La categoria ya existe"]);
+        $this->redirect('dashboard/searchAllCategories', ['error' => "La categoria ya existe"]);
       }
 
       if ($categoryModel->save()) {
-        $this->redirect('', ['success' => "Categoria registrada correctamente"]);
+        $this->redirect('dashboard/searchAllCategories');
       } else {
-        $this->redirect('product', ['error' => "Error inesperado"]);
+        $this->redirect('dashboard/searchAllCategories', ['error' => "Error inesperado"]);
       }
     } else {
       error_log("ADMINPRODUCTCONTROLLER::REGISTERCATEGORY error con los parametros");
-      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('dashboard/searchAllCategories', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 
@@ -137,13 +137,13 @@ class DashboardController extends SessionController
       $categoryModel->setName($name);
 
       if ($categoryModel->update()) {
-        $this->redirect('', ['success' => "Categoria modificada correctamente"]);
+        $this->redirect('dashboard/searchAllCategories');
       } else {
-        $this->redirect('product', ['error' => "Error inesperado"]);
+        $this->redirect('dashboard/searchAllCategories', ['error' => "Error inesperado"]);
       }
     } else {
       error_log("ADMINPRODUCTCONTROLLER::UPDATECATEGORY error con los parametros");
-      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('dashboard/searchAllCategories', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 
@@ -152,7 +152,7 @@ class DashboardController extends SessionController
     $catCode = $_GET['cat_code'];
     $category = new CategoryModel();
     $category->delete($catCode);
-    $this->view->render('dashboard/template');
+    $this->redirect('dashboard/searchAllCategories');
   }
 
 
@@ -165,35 +165,43 @@ class DashboardController extends SessionController
 
   public function viewRegisterProduct()
   {
-    $this->view->render('dashboard/template');
+    $category = new CategoryModel();
+    $data = $category->getAll();
+    $this->view->render('dashboard/template', $data);
   }
 
   public function viewUpdateProduct()
   {
     $prodCode = $_GET['prod_code'];
     $product = new ProductModel();
-    $data = $product->get($prodCode);
+    $data['products'] = $product->get($prodCode);
+    $category = new CategoryModel();
+    $data['categories'] = $category->getAll();
     $this->view->render('dashboard/template', $data);
   }
 
   function registerProduct()
   {
-    if ($this->existsPOST(['prod_code', 'name', 'price',  'description', 'stock', 'image'])) {
+    if ($this->existsPOST(['prod_code', 'name', 'price',  'description', 'stock', 'cat_code'])) {
       $prodCode = $this->getPost('prod_code');
       $name = $this->getPost('name');
       $price = $this->getPost('price');
       $description = $this->getPost('description');
       $stock = $this->getPost('stock');
+      $catCode = $this->getPost('cat_code');
 
       if ($prodCode == '' || empty($prodCode) || $name == '' || empty($name) || $price == '' || empty($price) || $description == '' || empty($description)) {
         error_log("ADMINPRODUCTCONTROLLER::REGISTERPRODUCT empty");
-        $this->redirect('product', ['error' => 'Campos vacios']);
+        $this->redirect('dashboard/registerProduct', ['error' => 'Campos vacios']);
         return false;
       }
 
-      $filename = $_FILES["image"]["name"];
-      $tempname = $_FILES["image"]["tmp_name"];
-      $folder = "" . constant('URL') . "public/images/" . $filename;
+      $uploaddir = './public/images/products/';
+      $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+      $filename = $_FILES['image']['name'];
+
+
+      move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
 
 
       $productModel = new ProductModel();
@@ -204,20 +212,20 @@ class DashboardController extends SessionController
       $productModel->setStock($stock);
       $productModel->setProdPicUrl($filename);
 
-      move_uploaded_file($tempname, $folder);
-
       if ($productModel->exists($prodCode)) {
-        $this->redirect('product', ['error' => "El producto ya existe"]);
+        $this->redirect('dashboard/registerProduct/', ['error' => "El producto ya existe"]);
       }
 
       if ($productModel->save()) {
-        $this->redirect('', ['success' => "Producto registrado correctamente"]);
+        if ($productModel->addProductToCategory($catCode)) {
+          $this->redirect('dashboard/searchAllProducts/', ['success' => "Producto registrado correctamente"]);
+        }
       } else {
-        $this->redirect('product', ['error' => "Error inesperado"]);
+        $this->redirect('dashboard/registerProduct/', ['error' => "Error inesperado"]);
       }
     } else {
       error_log("ADMINPRODUCTCONTROLLER::REGISTERPRODUCT error con los parametros");
-      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+      $this->redirect('dashboard/searchAllProducts/', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 
@@ -234,7 +242,7 @@ class DashboardController extends SessionController
 
       $productModel = new ProductModel();
       if ($productModel->delete($prodCode)) {
-        $this->redirect('', ['success' => "Producto eliminado"]);
+        $this->redirect('dashboard/searchAllProducts/', ['success' => "Producto eliminado"]);
       } else {
         $this->redirect('product', ['error' => "Error inesperado"]);
       }
@@ -246,37 +254,50 @@ class DashboardController extends SessionController
 
   function updateProduct()
   {
-    if ($this->existsPOST(['prod_code', 'name', 'price',  'description', 'prod_pic_url'])) {
+    if ($this->existsPOST(['prod_code', 'name', 'price',  'description', 'stock', 'cat_code'])) {
       $prodCode = $this->getPost('prod_code');
       $name = $this->getPost('name');
       $price = $this->getPost('price');
       $description = $this->getPost('description');
-      $prodPicUrl = $this->getPost('prod_pic_url');
+      $stock = $this->getPost('stock');
+      $catCode = $this->getPost('cat_code');
 
-      if (
-        $prodCode == '' || empty($prodCode) || $name == '' || empty($name) || $price == ''
-        || empty($price) || $description == '' || empty($description) || $prodPicUrl == '' || empty($prodPicUrl)
-      ) {
-        error_log("ADMINPRODUCTCONTROLLER::UPDATEPRODUCT empty");
-        $this->redirect('product', ['error' => 'Campos vacios']);
+      if ($prodCode == '' || empty($prodCode) || $name == '' || empty($name) || $price == '' || empty($price) || $description == '' || empty($description)) {
+        error_log("ADMINPRODUCTCONTROLLER::REGISTERPRODUCT empty");
+        $this->redirect('dashboard/registerProduct', ['error' => 'Campos vacios']);
         return false;
       }
+
+      $uploaddir = './public/images/products/';
+      $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+      $filename = $_FILES['image']['name'];
+
+
+      move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
+
 
       $productModel = new ProductModel();
       $productModel->setProdCode($prodCode);
       $productModel->setName($name);
       $productModel->setPrice($price);
       $productModel->setDescription($description);
-      $productModel->setProdPicUrl($prodPicUrl);
+      $productModel->setStock($stock);
+      $productModel->setProdPicUrl($filename);
+
+      if ($productModel->exists($prodCode)) {
+        $this->redirect('dashboard/registerProduct/', ['error' => "El producto ya existe"]);
+      }
 
       if ($productModel->update()) {
-        $this->redirect('', ['success' => "Producto modificado correctamente"]);
+        if ($productModel->updateProductCategory($catCode)) {
+          $this->redirect('dashboard/searchAllProducts/', ['success' => "Producto registrado correctamente"]);
+        }
       } else {
-        $this->redirect('product', ['error' => "Error inesperado"]);
+        $this->redirect('dashboard/registerProduct/', ['error' => "Error inesperado"]);
       }
     } else {
-      error_log("ADMINPRODUCTCONTROLLER::UPDATEPRODUCT error con los parametros");
-      $this->redirect('product', ['error' => "Error los campos obligatorios no fueron completados "]);
+      error_log("ADMINPRODUCTCONTROLLER::REGISTERPRODUCT error con los parametros");
+      $this->redirect('dashboard/searchAllProducts/', ['error' => "Error los campos obligatorios no fueron completados "]);
     }
   }
 }

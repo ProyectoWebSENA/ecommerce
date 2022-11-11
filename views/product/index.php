@@ -55,7 +55,7 @@ $data = $this->data;
 
   <main class="product-container">
     <div class="product-image-container">
-      <img src="<?php echo constant('URL') ?>public/images/<?php echo $data['product']['prod_pic_url'] ?>" alt="">
+      <img src="<?php echo constant('URL') ?>public/images/products/<?php echo $data['product']['prod_pic_url'] ?>" alt="">
     </div>
     <div class="product-details-container">
       <div class="details">

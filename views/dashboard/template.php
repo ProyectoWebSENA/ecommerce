@@ -42,7 +42,7 @@ if ($url[3] === "searchAllUser") {
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/dashboard.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/forms.css" />
   <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
-
+  <title>Dashboard Administrador | Ecommerce</title>
 </head>
 
 <body>
@@ -98,10 +98,6 @@ if ($url[3] === "searchAllUser") {
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Administrador</span>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search'></i>
       </div>
     </nav>
 

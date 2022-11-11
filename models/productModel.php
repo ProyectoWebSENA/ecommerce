@@ -40,6 +40,36 @@ class ProductModel extends Model implements IModel
     }
   }
 
+  public function addProductToCategory($cat_code1)
+  {
+    try {
+      $query = $this->prepare("INSERT INTO cat_prod (cat_code1, prod_code1) VALUES (:cat_code1,:prod_code1)");
+      $query->execute([
+        'prod_code1' => $this->prodCode,
+        'cat_code1' => $cat_code1,
+      ]);
+      return true;
+    } catch (PDOException $e) {
+      error_log("PRODUCTMODEL::SAVE-> " . $e->getMessage());
+      return false;
+    }
+  }
+
+  public function updateProductCategory($cat_code1)
+  {
+    try {
+      $query = $this->prepare("UPDATE cat_prod SET cat_code1 = :cat_code1 WHERE prod_code1 = :prod_code1");
+      $query->execute([
+        'prod_code1' => $this->prodCode,
+        'cat_code1' => $cat_code1,
+      ]);
+      return true;
+    } catch (PDOException $e) {
+      error_log("PRODUCTMODEL::updateProductCategory-> " . $e->getMessage());
+      return false;
+    }
+  }
+
   public function get($prodCode)
   {
     try {
@@ -104,13 +134,14 @@ class ProductModel extends Model implements IModel
   {
     try {
       $query = $this->prepare("UPDATE products 
-                SET name = :name, price = :price, description = :description, 
+                SET name = :name, price = :price, description = :description, stock = :stock,
                 prod_pic_url = :prod_pic_url 
                 WHERE prod_code = :prod_code");
       $query->execute([
         'name' => $this->name,
         'price' => $this->price,
         'description' => $this->description,
+        'stock' => $this->stock,
         'prod_pic_url' => $this->prodPicUrl,
         'prod_code' => $this->prodCode
       ]);

@@ -26,7 +26,7 @@ $data = $this->data;
           <?php if ($categorias['cat_code'] == $products['cat_code1']) : ?>
             <div class="card">
               <figure class="card-img-container ">
-                <img src="<?php echo constant('URL') ?>public/images/<?php echo $products['prod_pic_url'] ?>">
+                <img src="<?php echo constant('URL') ?>public/images/products/<?php echo $products['prod_pic_url'] ?>">
               </figure>
               <div class="card-desc-container">
                 <h3><?php echo $products['name'] ?></h3>
