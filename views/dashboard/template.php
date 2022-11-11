@@ -40,7 +40,7 @@ if ($url[3] === "searchAllUser") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/global.css" />
   <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/dashboard.css" />
-  <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/dashboardForm.css" />
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>public/styles/forms.css" />
   <link rel="shortcut icon" href="<?php echo constant('URL') ?>public/images/logo.jpg" type="image/x-icon">
 
 </head>
@@ -66,19 +66,19 @@ if ($url[3] === "searchAllUser") {
       </li>
       <li>
         <a href="<?php echo constant('URL') ?>dashboard/viewRegisterCategory" class="<?php echo $activate2 ?>">
-          <i class='bx bx-list-ul'></i>
+          <i class='bx bx-list-plus'></i>
           <span class="links_name">Crear categoria</span>
         </a>
       </li>
       <li>
         <a href="<?php echo constant('URL') ?>dashboard/searchAllProducts" class="<?php echo $activate3 ?>">
-          <i class='bx bx-list-ul'></i>
+          <i class='bx bxl-product-hunt'></i>
           <span class="links_name">Productos</span>
         </a>
       </li>
       <li>
         <a href="<?php echo constant('URL') ?>dashboard/viewRegisterProduct" class="<?php echo $activate3 ?>">
-          <i class='bx bx-list-ul'></i>
+          <i class='bx bx-list-plus'></i>
           <span class="links_name">Crear producto</span>
         </a>
       </li>

@@ -1,17 +1,12 @@
-/* Googlefont Poppins CDN Link */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 .sidebar {
   position: fixed;
   height: 100%;
   width: 240px;
-  background: black;
-  transition: all 0.5s ease;
+  background: var(--dark-orange-color);
+  transition: all var(--transition-time);
 }
 .sidebar.active {
   width: 60px;
@@ -22,14 +17,14 @@
   align-items: center;
 }
 .sidebar .logo-details i {
+  min-width: 60px;
   font-size: 28px;
   font-weight: 500;
-  color: #fff;
-  min-width: 60px;
   text-align: center;
+  color: var(--black-color);
 }
 .sidebar .logo-details .logo_name {
-  color: #fff;
+  color: var(--black-color);
   font-size: 24px;
   font-weight: 500;
 }
@@ -47,13 +42,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: all 0.4s ease;
+  transition: all var(--transition-time);
 }
-.sidebar .nav-links li a.active {
-  background: #081d45;
-}
+.sidebar .nav-links li a.active,
 .sidebar .nav-links li a:hover {
-  background: #081d45;
+  background: var(--punto-cinco-black-color);
 }
 .sidebar .nav-links li i {
   min-width: 60px;
