@@ -19,6 +19,12 @@
       "log-status": "no"
     },
     {
+      "site": "account",
+      "access": "private",
+      "role": "",
+      "log-status": "no"
+    },
+    {
       "site": "category",
       "access": "public",
       "role": "",

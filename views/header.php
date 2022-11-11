@@ -65,6 +65,7 @@ $sessiom = new Session();
           } else {
             echo '
                 <a href="/ecommerce/login">Iniciar Sesión</a>
+                <a href="/ecommerce/signup">Registrarse</a>
               ';
           }
           ?>
@@ -116,6 +117,7 @@ $sessiom = new Session();
       } else {
         echo '
                 <a href="/ecommerce/login">Iniciar Sesión</a>
+                <a href="/ecommerce/signup">Registrarse</a>
               ';
       }
       ?>

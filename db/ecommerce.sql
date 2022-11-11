@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 07:02 AM
+-- Generation Time: Nov 11, 2022 at 03:51 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -26,10 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `cart`
 --
-
-DROP DATABASE IF EXISTS ecommerce;
-CREATE DATABASE ecommerce;
-USE ecommerce;
 
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
@@ -75,7 +71,8 @@ CREATE TABLE `cat_prod` (
 
 INSERT INTO `cat_prod` (`id`, `cat_code1`, `prod_code1`) VALUES
 (1, 12, 12),
-(2, 13, 13);
+(2, 13, 13),
+(3, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -97,7 +94,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`prod_code`, `name`, `price`, `description`, `stock`, `prod_pic_url`) VALUES
-(12, 'Leche', 3000, 'Test', 10, 'gorra4.jpg'),
+(2, 'Test', 3424, 'Test', 3, 'gorra4.jpg'),
+(12, 'Leche', 3000, 'Test', 0, 'gorra4.jpg'),
 (13, 'Gorra', 60000, 'Test', 3, 'gorra4.jpg');
 
 -- --------------------------------------------------------
@@ -114,15 +112,6 @@ CREATE TABLE `reviews` (
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `reviews`
---
-
-INSERT INTO `reviews` (`id`, `id_user1`, `prod_code1`, `stars`, `comment`) VALUES
-(1, 1, 12, 3, 'Test'),
-(2, 1, 12, 1, 'Test'),
-(3, 1, 12, 5, 'test');
-
 -- --------------------------------------------------------
 
 --
@@ -138,13 +127,6 @@ CREATE TABLE `users` (
   `password` text NOT NULL,
   `role` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `cellphone`, `address`, `password`, `role`) VALUES
-(1, 'Juan', 'jjrojoa@gmail.com', 1, 'Direccion', '$argon2i$v=19$m=65536,t=4,p=1$TnhtV2VNMGdRdFZGemdzeg$zjgVHoioqPCuhCL29Qk3OLIVubUiF0By9qGIDoRGAQc', 'user');
 
 -- --------------------------------------------------------
 
@@ -220,31 +202,31 @@ ALTER TABLE `user_cart`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cat_prod`
 --
 ALTER TABLE `cat_prod`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_cart`
 --
 ALTER TABLE `user_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
@@ -254,28 +236,28 @@ ALTER TABLE `user_cart`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cat_prod`
 --
 ALTER TABLE `cat_prod`
-  ADD CONSTRAINT `cat_prod_ibfk_1` FOREIGN KEY (`cat_code1`) REFERENCES `categories` (`cat_code`),
-  ADD CONSTRAINT `cat_prod_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
+  ADD CONSTRAINT `cat_prod_ibfk_1` FOREIGN KEY (`cat_code1`) REFERENCES `categories` (`cat_code`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cat_prod_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`id_user1`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_cart`
 --
 ALTER TABLE `user_cart`
-  ADD CONSTRAINT `user_cart_ibfk_1` FOREIGN KEY (`id_cart1`) REFERENCES `cart` (`id`),
-  ADD CONSTRAINT `user_cart_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`);
+  ADD CONSTRAINT `user_cart_ibfk_1` FOREIGN KEY (`id_cart1`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_cart_ibfk_2` FOREIGN KEY (`prod_code1`) REFERENCES `products` (`prod_code`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
