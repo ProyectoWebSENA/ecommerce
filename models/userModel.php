@@ -62,14 +62,7 @@ class UserModel extends Model implements IModel
         WHERE id = :id");
       $query->execute(['id' => $id]);
       $user = $query->fetch(PDO::FETCH_ASSOC);
-      $this->id = $user['id'];
-      $this->name = $user['name'];
-      $this->email = $user['email'];
-      $this->cellphone = $user['cellphone'];
-      $this->address = $user['address'];
-      $this->password = $user['password'];
-      $this->role = $user['role'];
-      return $this;
+      return $user;
     } catch (PDOException $e) {
       error_log("USERMODEL::GET -> " . $e->getMessage());
       return false;
@@ -94,20 +87,33 @@ class UserModel extends Model implements IModel
     try {
       $query = $this->prepare("UPDATE users 
         SET name = :name, email = :email, cellphone = :cellphone, 
-        address = :address, password = :password, role = :role 
+        address = :address
         WHERE id = :id");
       $query->execute([
         "name" => $this->name,
         "email" => $this->email,
         "cellphone" => $this->cellphone,
         "address" => $this->address,
-        "password" => $this->password,
-        "role" => $this->role,
         "id" => $this->id
       ]);
       return true;
     } catch (PDOException $e) {
       error_log("USERMODEL::UPDATE-> " . $e->getMessage());
+      return false;
+    }
+  }
+
+  public function updatePassword()
+  {
+    try {
+      $query = $this->prepare("UPDATE users SET password = :password WHERE id = :id");
+      $query->execute([
+        "password" => $this->password,
+        "id" => $this->id
+      ]);
+      return true;
+    } catch (PDOException $e) {
+      error_log("USERMODEL::UPDATEPASSWORD-> " . $e->getMessage());
       return false;
     }
   }

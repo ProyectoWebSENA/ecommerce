@@ -22,7 +22,7 @@
       "site": "account",
       "access": "private",
       "role": "",
-      "log-status": "no"
+      "log-status": "yes"
     },
     {
       "site": "category",

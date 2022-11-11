@@ -1,15 +1,21 @@
-.form-dashboard-container {
+.form-dashboard-container,
+.form-account-container {
   width: 100%;
   height: max-content;
   padding: 2rem;
   padding-top: 100px;
 }
 
+.form-account-container {
+  padding-top: 1rem;
+}
+
 .form-title {
   font-size: var(--lg-font-size);
 }
 
-.form-dashboard {
+.form-dashboard,
+.form-account {
   min-width: 250px;
   width: 60%;
   max-width: 400px;
@@ -29,6 +35,11 @@
   align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.btn-container {
+  margin-top: 2rem;
+  flex-direction: row;
 }
 
 .input-container label {
@@ -56,4 +67,17 @@
 
 .btn-container input:hover {
   background-color: var(--dark-orange-color);
+}
+
+.input-title-container {
+  width: 100%;
+  height: max-content;
+  padding: 1rem 0;
+}
+
+.input-title-container p {
+  width: max-content;
+  font-size: var(--md-font-size);
+  font-weight: 600;
+  border-bottom: 1px solid black;
 }

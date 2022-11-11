@@ -142,7 +142,7 @@ class SessionController extends Controller
     $currentURL = $this->getCurrentPage();
     $currentURL = preg_replace("/\?.*/", "", $currentURL);
     for ($i = 0; $i < sizeof($this->sites); $i++) {
-      if ($currentURL === $this->sites[$i]['site'] && $this->sites[$i]['role'] === $role) {
+      if ($currentURL === $this->sites[$i]['site'] && ($this->sites[$i]['role'] === $role || $this->sites[$i]['role'] === '')) {
         return true;
       }
     }
